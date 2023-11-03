@@ -132,7 +132,6 @@
         </dependency>
 
         <!-- Throttling dependencies-->
-
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
