@@ -19,25 +19,33 @@
 
 <body>
 
-<section>
+<section id="welcomeSection">
     <div>
         <img src="assets/images/WelcomePage.jpeg" alt="welcomepage" id="welcomeImage">
         <img src="assets/images/math.png" alt="welcomepage" id="heading">
     </div>
     <div id="button-div">
-        <button class="welcome-page-button" id="btnLogin" onclick="handleSignIn()">SIGN IN</button>
+        <button class="welcome-page-button" id="btnLogin">SIGN IN</button>
         <button class="welcome-page-button" id="btnRegister" onclick="handleSignUp()">SIGN UP</button>
+    </div>
+</section>
+
+<section id="loginSection">
+    <div>
+        <img src="assets/images/LoginPage.jpeg" alt="loginPage" id="loginImage">
+        <img src="assets/images/backButton.png" alt="loginPage" id="btnLeftBack">
     </div>
 </section>
 
 </body>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/jquery/jquery-3.6.0.min.js"></script>
+<script src="controllers/DashBoard.js"></script>
 <script>
-    function handleSignIn() {
 
-        console.log("login")
-    }
+    $('#btnLogin').click(function (e) {
+
+    });
 
     function handleSignUp() {
         console.log("register")
