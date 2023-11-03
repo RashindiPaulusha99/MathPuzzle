@@ -1,6 +1,6 @@
 package com.uob.mathpuzzle.config;
 
-import com.ceyentra.wowreferralguru.exception.CustomOauthException;
+import com.uob.mathpuzzle.exception.CustomOauthException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,8 +21,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 import java.util.Arrays;
 
-import static com.ceyentra.wowreferralguru.constant.OAuth2Constant.*;
-
+import static com.uob.mathpuzzle.constant.OAuth2Constant.*;
 
 @Configuration
 @EnableAuthorizationServer

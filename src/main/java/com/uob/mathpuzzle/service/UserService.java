@@ -1,6 +1,8 @@
 package com.uob.mathpuzzle.service;
 
 
-public interface UserService {
+import com.uob.mathpuzzle.dto.UserDTO;
 
+public interface UserService {
+    UserDTO getAdminDetails(String email);
 }

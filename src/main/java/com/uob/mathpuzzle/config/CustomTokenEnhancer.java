@@ -1,11 +1,11 @@
 package com.uob.mathpuzzle.config;
 
-import com.ceyentra.wowreferralguru.constant.OAuth2Constant;
-import com.ceyentra.wowreferralguru.dto.AdminUserDTO;
-import com.ceyentra.wowreferralguru.exception.WowReferralGuruServiceException;
-import com.ceyentra.wowreferralguru.repository.AdminRepository;
-import com.ceyentra.wowreferralguru.service.AdminService;
-import com.ceyentra.wowreferralguru.service.Oauth2UserService;
+import com.uob.mathpuzzle.constant.OAuth2Constant;
+import com.uob.mathpuzzle.dto.UserDTO;
+import com.uob.mathpuzzle.exception.MathException;
+import com.uob.mathpuzzle.repository.UserRepository;
+import com.uob.mathpuzzle.service.Oauth2UserService;
+import com.uob.mathpuzzle.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,14 +28,14 @@ public class CustomTokenEnhancer extends JwtAccessTokenConverter {
     private final Oauth2UserService oauth2UserService;
     private final HttpServletRequest request;
     private final BCryptPasswordEncoder encoder;
-    private final AdminService adminService;
+    private final UserService userService;
 
     @Autowired
-    public CustomTokenEnhancer(Oauth2UserService oauth2UserService, HttpServletRequest request, BCryptPasswordEncoder encoder, AdminRepository adminRepository, AdminService adminService) {
+    public CustomTokenEnhancer(Oauth2UserService oauth2UserService, HttpServletRequest request, BCryptPasswordEncoder encoder, UserRepository userRepository, UserService userService) {
         this.oauth2UserService = oauth2UserService;
         this.request = request;
         this.encoder = encoder;
-        this.adminService = adminService;
+        this.userService = userService;
     }
 
     @Override
@@ -43,69 +43,23 @@ public class CustomTokenEnhancer extends JwtAccessTokenConverter {
 
         final Map<String, Object> additionalInfo = new HashMap<>();
 
-        String grantType = oAuth2Authentication.getOAuth2Request().getGrantType();
+        User user = (User) oAuth2Authentication.getPrincipal();
 
-        if (grantType.equals(OAuth2Constant.GRANT_TYPE)){
+        UsernamePasswordAuthenticationToken authentication =
+                (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+        User account = (User) authentication.getPrincipal();
 
-            User user = (User) oAuth2Authentication.getPrincipal();
+        if (account.getUsername().equals(OAuth2Constant.CLIENT_ID)) {
 
-            UsernamePasswordAuthenticationToken authentication =
-                    (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+            UserDTO adminDetails = userService.getAdminDetails(user.getUsername());
+            additionalInfo.put("user",adminDetails);
 
-            User account = (User) authentication.getPrincipal();
+        } else {
 
-            if (account.getUsername().equals(OAuth2Constant.CLIENT_ID)) {
-
-                AdminUserDTO adminDetails = adminService.getAdminDetails(user.getUsername());
-                additionalInfo.put("user",adminDetails);
-
-            } else {
-
-            }
-
-            ((DefaultOAuth2AccessToken) oAuth2AccessToken).setAdditionalInformation(additionalInfo);
-
-            return super.enhance(oAuth2AccessToken, oAuth2Authentication);
-
-        }else if (grantType.equals(OAuth2Constant.GRANT_TYPE_CLIENT_CREDENTIALS)){
-
-            String userId = null;
-            Enumeration<String> headerNames = request.getHeaderNames();
-            while (headerNames.hasMoreElements()) {
-                String headerName = headerNames.nextElement();
-                String headerValue = request.getHeader(headerName);
-
-                if (headerName.equals("user_id")){
-                    userId = headerValue;
-                }
-            }
-
-            String username = (String) oAuth2Authentication.getPrincipal();
-
-            UsernamePasswordAuthenticationToken authentication =
-                    (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-
-            User account = (User) authentication.getPrincipal();
-
-            if (userId == null){
-
-            }else {
-                if (account.getUsername().equals(OAuth2Constant.CLIENT_ID)) {
-
-                    additionalInfo.put("user_id",userId);
-                    additionalInfo.put("authorities", new String[]{"ROLE_USER"});
-
-                } else {
-
-                }
-            }
-
-            ((DefaultOAuth2AccessToken) oAuth2AccessToken).setAdditionalInformation(additionalInfo);
-
-            return super.enhance(oAuth2AccessToken, oAuth2Authentication);
-        }else {
-            throw new WowReferralGuruServiceException(400,"Invalid grant type.");
         }
 
+        ((DefaultOAuth2AccessToken) oAuth2AccessToken).setAdditionalInformation(additionalInfo);
+
+        return super.enhance(oAuth2AccessToken, oAuth2Authentication);
     }
 }

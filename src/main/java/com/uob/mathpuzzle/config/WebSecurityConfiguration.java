@@ -13,16 +13,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.firewall.StrictHttpFirewall;
-import org.springframework.security.web.header.HeaderWriter;
-import org.springframework.security.web.header.writers.StaticHeadersWriter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
-import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -47,34 +42,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .headers()
-                    .httpStrictTransportSecurity()
-                        .includeSubDomains(true)
-                        .maxAgeInSeconds(31536000)
-                        .preload(false)
-                    .and()
-                    .frameOptions()
-                        .sameOrigin()
-                    .xssProtection()
-                    .and()
-                    .contentSecurityPolicy("default-src 'self'; " +
-                            "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
-                            "style-src 'self' 'unsafe-inline'; " +
-                            "img-src 'self' data:; " +
-                            "font-src 'self'; " +
-                            "frame-src 'self'; " +
-                            "frame-ancestors 'self';")
-                    .and()
-                    //.addHeaderWriter(rateLimitHeaderWriter())
-                    .addHeaderWriter(new StaticHeadersWriter("X-FRAME-OPTIONS", "DENY"))
-                    .addHeaderWriter(new StaticHeadersWriter("X-Rate-Limit-Limit", "10"))
-                    .addHeaderWriter(new StaticHeadersWriter("X-Rate-Limit-Remaining", "60"))
-                    .addHeaderWriter(new StaticHeadersWriter("X-Rate-Limit-Reset", "60"))
-                    .and()
-                    .csrf().disable()
-                    .anonymous().disable()
-                    .authorizeRequests()
-                    .antMatchers("/api-docs/**").permitAll();
+                .csrf().disable()
+                .anonymous().disable()
+                .authorizeRequests()
+                .antMatchers("/api-docs/**").permitAll();
     }
 
     @Bean
@@ -96,23 +67,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
         bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         return bean;
-    }
-
-    @Bean
-    public StrictHttpFirewall httpFirewall() {
-        StrictHttpFirewall firewall = new StrictHttpFirewall();
-        /*firewall.setStrict(true);*/
-        List<String> allowedMethods = Arrays.asList("GET", "POST", "PUT", "DELETE");
-        firewall.setAllowedHttpMethods(allowedMethods);
-        return firewall;
-    }
-
-    private HeaderWriter rateLimitHeaderWriter() {
-        return (request, response) -> {
-            response.setHeader("X-RateLimit-Limit", "10"); // Set the rate limit value
-            response.setHeader("X-RateLimit-Remaining", "60"); // Set the remaining requests value
-            response.setHeader("X-RateLimit-Reset", "1628592000"); // Set the reset timestamp
-        };
     }
 
 

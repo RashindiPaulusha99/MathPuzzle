@@ -1,0 +1,54 @@
+#welcomeImage{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#heading{
+    position: absolute;
+    right: 0;
+    bottom: 29px;
+    width: 45%;
+}
+
+#button-div{
+    position: absolute;
+    right: 101px;
+    bottom: 10px;
+    width: 413px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.welcome-page-button{
+    width: 193px;
+    height: 53px;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 25px;
+    font-weight: 700;
+    color: #EE4510;
+    background-image: url("../images/loginbutton.png");
+    background-size:cover;
+    background-position:center center;
+    cursor: pointer;
+}
+
+.btnImage{
+    position: absolute;
+    bottom: 0;
+    width: 184px;
+    height: 157px;
+}
+
+#btnLoginImage{
+    position: absolute;
+    left: 10px;
+}

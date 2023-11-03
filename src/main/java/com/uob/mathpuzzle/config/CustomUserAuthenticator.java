@@ -1,6 +1,7 @@
 package com.uob.mathpuzzle.config;
 
-import com.ceyentra.wowreferralguru.exception.WowReferralGuruServiceException;
+import com.uob.mathpuzzle.exception.MathException;
+import com.uob.mathpuzzle.repository.MathRepository;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.codec.binary.Base64;
 import org.json.JSONException;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-import static com.ceyentra.wowreferralguru.constant.ApplicationConstant.FORBIDDEN_RESOURCE;
+import static com.uob.mathpuzzle.constant.ApplicationConstant.FORBIDDEN_RESOURCE;
 import static org.springframework.security.oauth2.common.exceptions.OAuth2Exception.INVALID_TOKEN;
 
 @Log4j2
@@ -20,13 +21,13 @@ public class CustomUserAuthenticator {
         try {
             log.info("\nChecking id with token: {}", id);
             if (id != getUserFromToken(jwtToken).getLong("id"))
-                throw new WowReferralGuruServiceException(403, FORBIDDEN_RESOURCE);
+                throw new MathException(403, FORBIDDEN_RESOURCE);
             log.info("\nuser id matches with id: {}", id);
 
         } catch (Exception e) {
             e.printStackTrace();
             log.error("\nUnauthorized token: {}\n", e.getMessage());
-            throw new WowReferralGuruServiceException(403, FORBIDDEN_RESOURCE);
+            throw new MathException(403, FORBIDDEN_RESOURCE);
         }
     }
 
@@ -51,7 +52,7 @@ public class CustomUserAuthenticator {
             return new Date(tokenJson.getLong("lastLogOutTime"));
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw new WowReferralGuruServiceException(401, INVALID_TOKEN);
+            throw new MathException(401, INVALID_TOKEN);
         }
     }
 
@@ -88,7 +89,7 @@ public class CustomUserAuthenticator {
                  IllegalStateException | JSONException | NullPointerException n) {
             /*token is invalid or user is not found if hits here.*/
             log.error("Failed to get JSON from JWT: {}\tError: {} ", jwtToken, n);
-            throw new WowReferralGuruServiceException(400, INVALID_TOKEN);
+            throw new MathException(400, INVALID_TOKEN);
         }
     }
 

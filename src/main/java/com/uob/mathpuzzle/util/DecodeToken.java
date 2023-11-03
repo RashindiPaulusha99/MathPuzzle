@@ -10,6 +10,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 @Log4j2
 public class DecodeToken {
@@ -18,9 +20,6 @@ public class DecodeToken {
 
     @Autowired
     UserRepository adminRepo;
-
-    @Autowired
-    ReferralUserRepository referralUserRepository;
 
     public DecodeToken(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
@@ -71,7 +70,7 @@ public class DecodeToken {
         try {
 
             // get admin by email
-            User adminUsersByEmail = adminRepo.findByEmail(email);
+            Optional<User> adminUsersByEmail = adminRepo.findByEmail(email);
             return modelMapper.map(adminUsersByEmail,UserDTO.class);
 
         } catch (Exception e) {

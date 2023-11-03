@@ -18,14 +18,14 @@ import static com.uob.mathpuzzle.constant.OAuth2Constant.HEADER_AUTH;
 @RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
+//    @Autowired
 //    private AdminService userService;
 
     // reset password
-    @PutMapping(path = "/password/reset",produces = MediaType.APPLICATION_JSON_VALUE)
+    /*@PutMapping(path = "/password/reset",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> resetPasswordOfAdmin(
             @RequestHeader(value = HEADER_AUTH, required = true) String token
-            /*@RequestBody PasswordDTO passwordDTO*/
+            *//*@RequestBody PasswordDTO passwordDTO*//*
     ){
 
         if (token == null || token.isEmpty() || !token.startsWith("Bearer ")) {
@@ -34,14 +34,14 @@ public class UserController {
         }
         return null;
 
-       /* log.info("REST request to reset password "+"password :"+passwordDTO);
+       *//* log.info("REST request to reset password "+"password :"+passwordDTO);
 
         if (passwordDTO.getEmail() == null || passwordDTO.getNewPassword() == null || passwordDTO.getCurrentPassword() == null){
             return new ResponseEntity(new CommonResponseDTO<>(false, "Invalid Data", null), HttpStatus.BAD_REQUEST);
         }else {
             userService.resetPassword(token,passwordDTO);
             return ResponseEntity.ok(new CommonResponseDTO<>(true, "Password has been updated successfully..!"));
-        }*/
+        }*//*
     }
 
     // save banner
@@ -49,7 +49,7 @@ public class UserController {
     public ResponseEntity saveBanner(
             @RequestHeader(value = HEADER_AUTH, required = true) String token,
             @RequestPart("image") MultipartFile file
-            /*@ModelAttribute BannerDTO banner*/
+            *//*@ModelAttribute BannerDTO banner*//*
     ){
 
         if (token == null || token.isEmpty() || !token.startsWith("Bearer ")) {
@@ -97,6 +97,6 @@ public class UserController {
 //        boolean result = bannerService.deleteBanner(token, id);
 //        return new ResponseEntity(new CommonResponseDTO<>(true, "Banner has been deleted successfully",result), HttpStatus.OK);
     }
-
+*/
 
 }

@@ -3,10 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Math Puzzle With tomato API</title>
+    <link rel="stylesheet" href="assets/styles/style.css">
 </head>
+
 <body>
 
-<h1>Math Puzzle With tomato API Server Started</h1>
+<section>
+    <div>
+        <img src="assets/images/WelcomePage.jpeg" alt="welcomepage" id="welcomeImage">
+        <img src="assets/images/math.png" alt="welcomepage" id="heading">
+    </div>
+    <div id="button-div">
+        <button class="welcome-page-button" id="btnLogin" onclick="handleSignIn()">SIGN IN</button>
+        <button class="welcome-page-button" id="btnRegister" onclick="handleSignUp()">SIGN UP</button>
+    </div>
+</section>
 
 </body>
+<script>
+    function handleSignIn() {
+        console.log("login")
+    }
+
+    function handleSignUp() {
+        console.log("register")
+    }
+</script>
 </html>
