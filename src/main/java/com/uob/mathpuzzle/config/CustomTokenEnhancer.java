@@ -1,8 +1,8 @@
 package com.uob.mathpuzzle.config;
 
 import com.uob.mathpuzzle.constant.OAuth2Constant;
-import com.uob.mathpuzzle.dto.UserDTO;
-import com.uob.mathpuzzle.repository.UserRepository;
+import com.uob.mathpuzzle.dto.PlayerDTO;
+import com.uob.mathpuzzle.repository.PlayerRepository;
 import com.uob.mathpuzzle.service.Oauth2UserService;
 import com.uob.mathpuzzle.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +26,14 @@ public class CustomTokenEnhancer extends JwtAccessTokenConverter {
     private final Oauth2UserService oauth2UserService;
     private final HttpServletRequest request;
     private final BCryptPasswordEncoder encoder;
-    private final UserService userService;
+    private final UserService playerService;
 
     @Autowired
-    public CustomTokenEnhancer(Oauth2UserService oauth2UserService, HttpServletRequest request, BCryptPasswordEncoder encoder, UserRepository userRepository, UserService userService) {
+    public CustomTokenEnhancer(Oauth2UserService oauth2UserService, HttpServletRequest request, BCryptPasswordEncoder encoder, PlayerRepository playerRepository, UserService playerService) {
         this.oauth2UserService = oauth2UserService;
         this.request = request;
         this.encoder = encoder;
-        this.userService = userService;
+        this.playerService = playerService;
     }
 
     @Override
@@ -49,8 +49,9 @@ public class CustomTokenEnhancer extends JwtAccessTokenConverter {
 
         if (account.getUsername().equals(OAuth2Constant.CLIENT_ID)) {
 
-            UserDTO adminDetails = userService.getAdminDetails(user.getUsername());
+            PlayerDTO adminDetails = playerService.getAdminDetails(user.getUsername());
             additionalInfo.put("user",adminDetails);
+            additionalInfo.put("success",true);
 
         } else {
 

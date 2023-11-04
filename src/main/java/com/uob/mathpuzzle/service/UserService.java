@@ -1,9 +1,9 @@
 package com.uob.mathpuzzle.service;
 
 
-import com.uob.mathpuzzle.dto.UserDTO;
+import com.uob.mathpuzzle.dto.PlayerDTO;
 
 public interface UserService {
-    UserDTO getAdminDetails(String email);
-    UserDTO saveUser(UserDTO userDTO);
+    PlayerDTO getAdminDetails(String email);
+    PlayerDTO savePlayer(PlayerDTO playerDTO);
 }

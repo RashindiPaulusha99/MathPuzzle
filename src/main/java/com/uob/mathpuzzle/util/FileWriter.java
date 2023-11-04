@@ -6,7 +6,7 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.uob.mathpuzzle.exception.MathException;
+import com.uob.mathpuzzle.exception.GameException;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -113,7 +113,7 @@ public class FileWriter{
         } catch (Exception e) {
             log.error("Function saveMultipartFile : " + e.getMessage(), e);
             e.printStackTrace();
-            throw new MathException(MULTIPART_FILE_SAVE_ERROR, "Error occurred while saving attachment");
+            throw new GameException(MULTIPART_FILE_SAVE_ERROR, "Error occurred while saving attachment");
         } finally {
             if (bufferedOutputStream != null) {
                 try {
@@ -121,7 +121,7 @@ public class FileWriter{
                     if (serverFile != null) serverFile.delete();
                 } catch (IOException e) {
                     log.error("Function saveMultipartFile : " + e.getMessage(), e);
-                    throw new MathException(MULTIPART_FILE_SAVE_ERROR, "Error occurred while saving attachment");
+                    throw new GameException(MULTIPART_FILE_SAVE_ERROR, "Error occurred while saving attachment");
                 }
             }
         }

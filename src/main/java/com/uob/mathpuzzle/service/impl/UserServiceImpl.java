@@ -1,9 +1,9 @@
 package com.uob.mathpuzzle.service.impl;
 
-import com.uob.mathpuzzle.dto.UserDTO;
-import com.uob.mathpuzzle.entity.User;
-import com.uob.mathpuzzle.exception.MathException;
-import com.uob.mathpuzzle.repository.UserRepository;
+import com.uob.mathpuzzle.dto.PlayerDTO;
+import com.uob.mathpuzzle.entity.Player;
+import com.uob.mathpuzzle.exception.GameException;
+import com.uob.mathpuzzle.repository.PlayerRepository;
 import com.uob.mathpuzzle.service.UserService;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
@@ -22,29 +22,29 @@ import java.util.Optional;
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository;
+    private final PlayerRepository playerRepository;
     private final ModelMapper modelMapper;
     private final BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, BCryptPasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
+    public UserServiceImpl(PlayerRepository playerRepository, ModelMapper modelMapper, BCryptPasswordEncoder passwordEncoder) {
+        this.playerRepository = playerRepository;
         this.modelMapper = modelMapper;
         this.passwordEncoder = passwordEncoder;
     }
 
     @Override
-    public UserDTO getAdminDetails(String email) {
+    public PlayerDTO getAdminDetails(String email) {
         log.info("Execute method getAdminDetails :"+email);
 
         try {
 
-            // check admin
-            Optional<User> byEmail = userRepository.findByEmail(email);
-            if(!byEmail.isPresent()) throw new MathException("Admin user not found");
+            // check player
+            Optional<Player> byEmail = playerRepository.findByEmail(email);
+            if(!byEmail.isPresent()) throw new GameException("Admin user not found");
 
-            // get admin
-            return modelMapper.map(byEmail.get(), UserDTO.class);
+            // get player
+            return modelMapper.map(byEmail.get(), PlayerDTO.class);
 
         } catch (Exception e) {
             log.error("Error at method getAdminDetails: " + e.getMessage());
@@ -53,10 +53,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO saveUser(UserDTO userDTO) {
-        User user = new User();
-        user.setEmail(userDTO.getEmail());
-        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-        return modelMapper.map(userRepository.save(user),UserDTO.class);
+    public PlayerDTO savePlayer(PlayerDTO playerDTO) {
+        Player player = new Player();
+        player.setEmail(playerDTO.getEmail());
+        player.setUsername(playerDTO.getUsername());
+        player.setPassword(passwordEncoder.encode(playerDTO.getPassword()));
+        return modelMapper.map(playerRepository.save(player), PlayerDTO.class);
     }
 }

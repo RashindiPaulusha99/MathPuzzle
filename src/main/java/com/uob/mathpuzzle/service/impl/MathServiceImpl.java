@@ -3,7 +3,6 @@ package com.uob.mathpuzzle.service.impl;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.uob.mathpuzzle.constant.OAuth2Constant;
-import com.uob.mathpuzzle.service.UserService;
 import com.uob.mathpuzzle.util.DecodeToken;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;

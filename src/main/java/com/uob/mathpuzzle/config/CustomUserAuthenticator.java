@@ -1,6 +1,6 @@
 package com.uob.mathpuzzle.config;
 
-import com.uob.mathpuzzle.exception.MathException;
+import com.uob.mathpuzzle.exception.GameException;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.codec.binary.Base64;
 import org.json.JSONException;
@@ -20,13 +20,13 @@ public class CustomUserAuthenticator {
         try {
             log.info("\nChecking id with token: {}", id);
             if (id != getUserFromToken(jwtToken).getLong("id"))
-                throw new MathException(403, FORBIDDEN_RESOURCE);
+                throw new GameException(403, FORBIDDEN_RESOURCE);
             log.info("\nuser id matches with id: {}", id);
 
         } catch (Exception e) {
             e.printStackTrace();
             log.error("\nUnauthorized token: {}\n", e.getMessage());
-            throw new MathException(403, FORBIDDEN_RESOURCE);
+            throw new GameException(403, FORBIDDEN_RESOURCE);
         }
     }
 
@@ -51,7 +51,7 @@ public class CustomUserAuthenticator {
             return new Date(tokenJson.getLong("lastLogOutTime"));
         } catch (Exception ex) {
             log.error(ex.getMessage());
-            throw new MathException(401, INVALID_TOKEN);
+            throw new GameException(401, INVALID_TOKEN);
         }
     }
 
@@ -88,7 +88,7 @@ public class CustomUserAuthenticator {
                  IllegalStateException | JSONException | NullPointerException n) {
             /*token is invalid or user is not found if hits here.*/
             log.error("Failed to get JSON from JWT: {}\tError: {} ", jwtToken, n);
-            throw new MathException(400, INVALID_TOKEN);
+            throw new GameException(400, INVALID_TOKEN);
         }
     }
 

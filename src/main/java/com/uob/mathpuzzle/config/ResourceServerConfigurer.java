@@ -25,7 +25,7 @@ public class ResourceServerConfigurer extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.
                 authorizeRequests()
-                .antMatchers("/v1/user/register/save").permitAll() // Exclude /save/newuser from authentication
+                .antMatchers("/v1/player/register/save").permitAll() // Exclude /save/newuser from authentication
                 .antMatchers("/oauth/token").permitAll()
 
                 /*admin controller*/

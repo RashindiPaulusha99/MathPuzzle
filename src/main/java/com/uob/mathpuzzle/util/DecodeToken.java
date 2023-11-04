@@ -1,9 +1,9 @@
 package com.uob.mathpuzzle.util;
 
 import com.uob.mathpuzzle.config.CustomUserAuthenticator;
-import com.uob.mathpuzzle.dto.UserDTO;
-import com.uob.mathpuzzle.entity.User;
-import com.uob.mathpuzzle.repository.UserRepository;
+import com.uob.mathpuzzle.dto.PlayerDTO;
+import com.uob.mathpuzzle.entity.Player;
+import com.uob.mathpuzzle.repository.PlayerRepository;
 import lombok.extern.log4j.Log4j2;
 import org.json.JSONObject;
 import org.modelmapper.ModelMapper;
@@ -19,14 +19,14 @@ public class DecodeToken {
     private final ModelMapper modelMapper;
 
     @Autowired
-    UserRepository adminRepo;
+    PlayerRepository adminRepo;
 
     public DecodeToken(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
 
     // get admin from token
-    public UserDTO checkAccessTokenAndGetAdminUser(String token) {
+    public PlayerDTO checkAccessTokenAndGetAdminUser(String token) {
         log.info("Execute method checkAccessTokenAndGetAdminUser ");
 
         try {
@@ -45,7 +45,7 @@ public class DecodeToken {
     }
 
     // get user from token
-    public UserDTO checkAccessTokenAndGetUser(String token) {
+    public PlayerDTO checkAccessTokenAndGetUser(String token) {
         log.info("Execute method checkAccessTokenAndGetUser ");
 
         try {
@@ -64,14 +64,14 @@ public class DecodeToken {
     }
 
     // find admin by email
-    private UserDTO findAdminUserByEmail(String email){
+    private PlayerDTO findAdminUserByEmail(String email){
         log.info("Execute method findAdminUserByEmail :"+email);
 
         try {
 
             // get admin by email
-            Optional<User> adminUsersByEmail = adminRepo.findByEmail(email);
-            return modelMapper.map(adminUsersByEmail,UserDTO.class);
+            Optional<Player> adminUsersByEmail = adminRepo.findByEmail(email);
+            return modelMapper.map(adminUsersByEmail, PlayerDTO.class);
 
         } catch (Exception e) {
             log.error("Error at method findAdminUserByEmail: " + e.getMessage());
@@ -80,7 +80,7 @@ public class DecodeToken {
     }
 
     // find user by user id
-    private UserDTO findUserById(Long id){
+    private PlayerDTO findUserById(Long id){
         log.info("Execute method findUserById :"+id);
         return null;
 

@@ -5,6 +5,7 @@ $("#gameSection").css('display','none');
 $("#btnLeftBack").css('display','none');
 $("#successAlertSection").css('display','none');
 $("#warningAlertSection").css('display','none');
+$("#errorAlertSection").css('display','none');
 
 $("#btnLogin").click(function () {
     $("#loginSection").css('display','block');
@@ -14,6 +15,7 @@ $("#btnLogin").click(function () {
     $("#btnLeftBack").css('display','block');
     $("#successAlertSection").css('display','none');
     $("#warningAlertSection").css('display','none');
+    $("#errorAlertSection").css('display','none');
 });
 
 $("#btnRegister").click(function () {
@@ -24,6 +26,7 @@ $("#btnRegister").click(function () {
     $("#btnLeftBack").css('display','none');
     $("#successAlertSection").css('display','none');
     $("#warningAlertSection").css('display','none');
+    $("#errorAlertSection").css('display','none');
 });
 
 $(".btnLeftBack").click(function () {
@@ -34,6 +37,7 @@ $(".btnLeftBack").click(function () {
     $("#welcomeSection").css('display','block');
     $("#successAlertSection").css('display','none');
     $("#warningAlertSection").css('display','none');
+    $("#errorAlertSection").css('display','none');
 });
 
 $("#btnSignUp-login").click(function () {
@@ -44,14 +48,7 @@ $("#btnSignUp-login").click(function () {
     $("#welcomeSection").css('display','none');
     $("#successAlertSection").css('display','none');
     $("#warningAlertSection").css('display','none');
-});
-
-$("#btnSignIn-login").click(function () {
-    $("#loginSection").css('display','none');
-    $("#registerSection").css('display','none');
-    $("#btnLeftBack").css('display','none');
-    $("#welcomeSection").css('display','none');
-    $("#gameSection").css('display','block');
+    $("#errorAlertSection").css('display','none');
 });
 
 $("#btnSignIn-register").click(function () {
@@ -62,4 +59,5 @@ $("#btnSignIn-register").click(function () {
     $("#welcomeSection").css('display','none');
     $("#successAlertSection").css('display','none');
     $("#warningAlertSection").css('display','none');
+    $("#errorAlertSection").css('display','none');
 });

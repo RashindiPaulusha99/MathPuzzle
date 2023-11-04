@@ -73,10 +73,11 @@
 
 .btnLeftBack{
     position: absolute;
-    top: 0;
+    top: 15px;
     left: 0;
     width: 100px;
     cursor: pointer;
+    z-index: 2;
 }
 
 .form-login{
@@ -146,8 +147,33 @@
     font-weight: 700;
 }
 
-/*game page*/
+.username-input{
+    color: black;
+}
 
+.username-label{
+    color: white;
+    font-weight: 500;
+}
+
+/*alerts*/
+#successAlertSection{
+    width: 30%;
+    position: relative;
+    z-index: 3;
+}
+#warningAlertSection{
+    width: 30%;
+    position: relative;
+    z-index: 3;
+}
+#errorAlertSection{
+    width: 30%;
+    position: relative;
+    z-index: 3;
+}
+
+/*game page*/
 .gameImage{
     height: 100vh;
     width: 100%;
@@ -157,4 +183,81 @@
     right: 0;
     bottom: 0;
     margin: auto;
+}
+
+.form-game{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#scoreHeading{
+    width: 98%;
+    height: 71px;
+    position: absolute;
+    top: 16px;
+    background-color: white;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#scoreTitle{
+    color: black;
+    text-align: center;
+}
+
+.gamePhoto{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.form-answer-button{
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 50%;
+    margin: auto;
+}
+
+#btnA1{
+    width: 100px;
+    background-color: white;
+    border: 1px solid transparent;
+    color: black;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+#btnA2{
+    width: 100px;
+    background-color: white;
+    border: 1px solid transparent;
+    color: black;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+#btnA3{
+    width: 100px;
+    background-color: white;
+    border: 1px solid transparent;
+    color: black;
+    font-weight: 500;
+    font-size: 25px;
 }

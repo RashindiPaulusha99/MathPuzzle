@@ -1,7 +1,8 @@
 package com.uob.mathpuzzle.service.impl;
 
+import com.uob.mathpuzzle.entity.Player;
 import com.uob.mathpuzzle.exception.CustomOauthException;
-import com.uob.mathpuzzle.repository.MathRepository;
+import com.uob.mathpuzzle.repository.GameRepository;
 import com.uob.mathpuzzle.service.Oauth2UserService;
 import com.uob.mathpuzzle.util.EmailValidator;
 import lombok.extern.log4j.Log4j2;
@@ -30,12 +31,12 @@ import static com.uob.mathpuzzle.constant.OAuth2Constant.CLIENT_ID;
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class Oauth2UserServiceImpl implements Oauth2UserService, UserDetailsService {
 
-    private final MathRepository mathRepository;
+    private final GameRepository gameRepository;
     private final EmailValidator emailValidator;
 
     @Autowired
-    public Oauth2UserServiceImpl(MathRepository mathRepository, EmailValidator emailValidator) {
-        this.mathRepository = mathRepository;
+    public Oauth2UserServiceImpl(GameRepository gameRepository, EmailValidator emailValidator) {
+        this.gameRepository = gameRepository;
         this.emailValidator = emailValidator;
     }
 
@@ -57,7 +58,7 @@ public class Oauth2UserServiceImpl implements Oauth2UserService, UserDetailsServ
             // check client credentials
             if(clientId.equals(CLIENT_ID)) {
                 //if admin
-                Optional<com.uob.mathpuzzle.entity.User> byEmail = mathRepository.findByEmail(s);
+                Optional<Player> byEmail = gameRepository.findByEmail(s);
 
                 if(!byEmail.isPresent()) throw new CustomOauthException("Invalid Credentials");
 

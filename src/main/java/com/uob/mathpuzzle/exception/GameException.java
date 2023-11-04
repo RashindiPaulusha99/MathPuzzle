@@ -7,17 +7,17 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class MathException extends RuntimeException{
+public class GameException extends RuntimeException{
 
     private int status;
     private String message;
 
-    public MathException(String msg) {
+    public GameException(String msg) {
         super(msg);
         this.message = msg;
     }
 
-    public MathException(int status, String msg) {
+    public GameException(int status, String msg) {
         super(msg);
         this.status = status;
         this.message = msg;

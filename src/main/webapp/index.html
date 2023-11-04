@@ -65,11 +65,15 @@
             <h1 class="mb-5 heading">REGISTER</h1>
         </div>
         <div class="mb-2 form-email">
-            <label for="email-login" class="form-label email-label">EMAIL</label>
+            <label for="username-register" class="form-label username-label">USERNAME</label>
+            <input type="text" class="form-control username-input" id="username-register">
+        </div>
+        <div class="mb-2 form-email">
+            <label for="email-register" class="form-label email-label">EMAIL</label>
             <input type="email" class="form-control email-input" id="email-register">
         </div>
         <div class="mb-4 form-email">
-            <label for="password-login" class="form-label password-label">PASSWORD</label>
+            <label for="password-register" class="form-label password-label">PASSWORD</label>
             <input type="password" class="form-control password-input" id="password-register">
         </div>
         <div class="mb-2 form-button">
@@ -82,24 +86,21 @@
 <section id="gameSection">
     <div>
         <img src="assets/images/gameSection.jpg" alt="gamePage" class="gameImage">
+        <img src="assets/images/backButton.png" alt="loginPage" class="btnLeftBack">
     </div>
-    <!--<div class="form-login">
-        <div>
-            <h1 class="mb-5 heading">REGISTER</h1>
+    <div class="form-game">
+        <div id="scoreHeading" class="mb-5">
+            <h1 class="mb-2 mt-2 heading" id="scoreTitle">SCORE :<span class="mb-2 mt-2">0</span></h1>
         </div>
-        <div class="mb-2 form-email">
-            <label for="email-login" class="form-label email-label">EMAIL</label>
-            <input type="email" class="form-control email-input" id="email-register">
+        <div class="gamePhoto">
+            <img src="assets/images/tomato1.png" alt="game" class="game">
         </div>
-        <div class="mb-4 form-email">
-            <label for="password-login" class="form-label password-label">PASSWORD</label>
-            <input type="password" class="form-control password-input" id="password-register">
+        <div class="mb-2 form-answer-button">
+            <button type="button" class="btn" id="btnA1">1</button>
+            <button type="button" class="btn" id="btnA2">2</button>
+            <button type="button" class="btn" id="btnA3">3</button>
         </div>
-        <div class="mb-2 form-button">
-            <button type="button" class="btn" id="btnSignIn-register">SIGN IN</button>
-            <button type="button" class="btn" id="btnSignUp-register">SIGN UP</button>
-        </div>
-    </div>-->
+    </div>
 </section>
 
 <section id="successAlertSection">
@@ -117,7 +118,7 @@
     <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
         <div id="successAlert">
-            An example success alert with an icon
+            Success
         </div>
     </div>
 </section>
@@ -137,7 +138,27 @@
     <div class="alert alert-warning d-flex align-items-center" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
         <div id="warningAlert">
-            An example warning alert with an icon
+            Warning
+        </div>
+    </div>
+</section>
+
+<section id="errorAlertSection">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+    </svg>
+    <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div id="errorAlert">
+            Error
         </div>
     </div>
 </section>
@@ -149,9 +170,10 @@
 <script src="controllers/LoginController.js"></script>
 <script>
     $(document).ready(function() {
-    // Delay for 5 seconds and then fade out in 0.5 seconds
-    $('#successAlertSection').delay(5000).fadeOut(500);
-    $('#warningAlertSection').delay(5000).fadeOut(500);
+        // Delay for 5 seconds and then fade out in 0.5 seconds
+        $('#successAlertSection').delay(5000).fadeOut(500);
+        $('#warningAlertSection').delay(5000).fadeOut(500);
+        $('#errorAlertSection').delay(5000).fadeOut(500);
     });
 
 </script>
