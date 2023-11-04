@@ -50,7 +50,7 @@ public class FileWriter{
     private OutputStream outputStream;
     private BufferedOutputStream bufferedOutputStream;
 
-    public static final String TEMP_FILE_PATH = "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps\\resources\\temp";
+    public static final String TEMP_FILE_PATH = "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps\\resources\\math";
     //public static final String TEMP_FILE_PATH = "/resource/temp";
 
     public static final int MULTIPART_FILE_SAVE_ERROR = 300;
@@ -164,6 +164,7 @@ public class FileWriter{
             InputStream inputStream = s3client.getObject(bucketName, downloadDirectory + fileName).getObjectContent();
             FileUtils.copyInputStreamToFile(inputStream, new File(TEMP_FILE_PATH + fileName));
         } catch (Exception e) {
+        	e.printStackTrace();
             log.error("getFileFroms3bucket : " + e.getMessage(), e);
         }
     }

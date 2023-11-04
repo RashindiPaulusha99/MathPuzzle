@@ -7,12 +7,12 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class User {
+@Entity
+public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

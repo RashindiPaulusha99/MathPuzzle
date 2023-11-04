@@ -12,21 +12,19 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.Optional;
 
-
 @Log4j2
 @Service
+@CrossOrigin
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
     private final BCryptPasswordEncoder passwordEncoder;
-
-    @Autowired
-    UserRepository adminUserRepo;
 
     @Autowired
     public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, BCryptPasswordEncoder passwordEncoder) {
@@ -52,5 +50,13 @@ public class UserServiceImpl implements UserService {
             log.error("Error at method getAdminDetails: " + e.getMessage());
             throw e;
         }
+    }
+
+    @Override
+    public UserDTO saveUser(UserDTO userDTO) {
+        User user = new User();
+        user.setEmail(userDTO.getEmail());
+        user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
+        return modelMapper.map(userRepository.save(user),UserDTO.class);
     }
 }

@@ -1,7 +1,6 @@
 package com.uob.mathpuzzle.config;
 
 import com.uob.mathpuzzle.exception.MathException;
-import com.uob.mathpuzzle.repository.MathRepository;
 import lombok.extern.log4j.Log4j2;
 import org.apache.commons.codec.binary.Base64;
 import org.json.JSONException;

@@ -2,7 +2,6 @@ package com.uob.mathpuzzle.config;
 
 import com.uob.mathpuzzle.constant.OAuth2Constant;
 import com.uob.mathpuzzle.dto.UserDTO;
-import com.uob.mathpuzzle.exception.MathException;
 import com.uob.mathpuzzle.repository.UserRepository;
 import com.uob.mathpuzzle.service.Oauth2UserService;
 import com.uob.mathpuzzle.service.UserService;
@@ -18,7 +17,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 

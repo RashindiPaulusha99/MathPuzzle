@@ -1,6 +1,8 @@
 package com.uob.mathpuzzle.controller;
 
 import com.uob.mathpuzzle.dto.CommonResponseDTO;
+import com.uob.mathpuzzle.dto.UserDTO;
+import com.uob.mathpuzzle.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,95 +10,30 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import static com.uob.mathpuzzle.constant.OAuth2Constant.HEADER_AUTH;
 
 @RestController
-@RequestMapping("/v1/admin")
+@RequestMapping("/v1/user")
 @Log4j2
 @RequiredArgsConstructor
+@CrossOrigin
 public class UserController {
 
-//    @Autowired
-//    private AdminService userService;
+    @Autowired
+    private UserService userService;
 
-    // reset password
-    /*@PutMapping(path = "/password/reset",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> resetPasswordOfAdmin(
-            @RequestHeader(value = HEADER_AUTH, required = true) String token
-            *//*@RequestBody PasswordDTO passwordDTO*//*
-    ){
-
-        if (token == null || token.isEmpty() || !token.startsWith("Bearer ")) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(new CommonResponseDTO<>(false, "Bearer token is required", null));
+    // register user
+    @PostMapping(path = "/register/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    public CommonResponseDTO saveUser(@RequestBody UserDTO userDTO) {
+        try {
+            log.info("REST request to register new user " + "user :" + userDTO);
+            return new CommonResponseDTO<UserDTO>(true, "Success", userService.saveUser(userDTO));
+        } catch (Exception e) {
+            log.error("Error saving user: " + e.getMessage());
+            // Return an error response or handle the exception as necessary
+            return new CommonResponseDTO<UserDTO>(false, "Error: " + e.getMessage(), null);
         }
-        return null;
-
-       *//* log.info("REST request to reset password "+"password :"+passwordDTO);
-
-        if (passwordDTO.getEmail() == null || passwordDTO.getNewPassword() == null || passwordDTO.getCurrentPassword() == null){
-            return new ResponseEntity(new CommonResponseDTO<>(false, "Invalid Data", null), HttpStatus.BAD_REQUEST);
-        }else {
-            userService.resetPassword(token,passwordDTO);
-            return ResponseEntity.ok(new CommonResponseDTO<>(true, "Password has been updated successfully..!"));
-        }*//*
     }
-
-    // save banner
-    @PostMapping(path = "/banner/save",consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity saveBanner(
-            @RequestHeader(value = HEADER_AUTH, required = true) String token,
-            @RequestPart("image") MultipartFile file
-            *//*@ModelAttribute BannerDTO banner*//*
-    ){
-
-        if (token == null || token.isEmpty() || !token.startsWith("Bearer ")) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(new CommonResponseDTO<>(false, "Bearer token is required", null));
-        }
-
-//        log.info("REST request to save new banner "+"banner :"+banner+"file : "+file);
-
-        return null;
-    }
-
-    // update banner
-    @PutMapping(path = "/banner/update",consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity updateBanner(
-            @RequestHeader(value = HEADER_AUTH, required = true) String token,
-            @RequestPart("image") MultipartFile file
-//            @ModelAttribute BannerDTO banner
-    ){
-
-        if (token == null || token.isEmpty() || !token.startsWith("Bearer ")) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(new CommonResponseDTO<>(false, "Bearer token is required", null));
-        }
-
-//        log.info("REST request to update banner "+"banner :"+banner+"file : "+file);
-        return  null;
-    }
-
-    // delete banner
-    @DeleteMapping(path = "/banner/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity deleteBanner(
-            @RequestHeader(value = HEADER_AUTH, required = true) String token,
-            @PathVariable("id") Long id,
-            @RequestParam("type") String type
-    ){
-
-        if (token == null || token.isEmpty() || !token.startsWith("Bearer ")) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(new CommonResponseDTO<>(false, "Bearer token is required", null));
-        }
-
-        log.info("REST request to delete banner "+"id :"+id);
-        return null;
-//        boolean result = bannerService.deleteBanner(token, id);
-//        return new ResponseEntity(new CommonResponseDTO<>(true, "Banner has been deleted successfully",result), HttpStatus.OK);
-    }
-*/
-
 }
+

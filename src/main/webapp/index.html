@@ -5,7 +5,8 @@
     <title>Math Puzzle With tomato API</title>
     <link rel="stylesheet" href="assets/styles/style.css">
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+    <script src="assets/bootstrap/css/bootstrap.min.css" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Lobster+Two:wght@400;700&display=swap" rel="stylesheet">
@@ -26,14 +27,118 @@
     </div>
     <div id="button-div">
         <button class="welcome-page-button" id="btnLogin">SIGN IN</button>
-        <button class="welcome-page-button" id="btnRegister" onclick="handleSignUp()">SIGN UP</button>
+        <button class="welcome-page-button" id="btnRegister">SIGN UP</button>
     </div>
 </section>
 
 <section id="loginSection">
     <div>
-        <img src="assets/images/LoginPage.jpeg" alt="loginPage" id="loginImage">
-        <img src="assets/images/backButton.png" alt="loginPage" id="btnLeftBack">
+        <img src="assets/images/LoginPage.jpeg" alt="loginPage" class="loginImage">
+        <img src="assets/images/backButton.png" alt="loginPage" class="btnLeftBack">
+    </div>
+    <div class="form-login">
+        <div>
+            <h1 class="mb-5 heading">LOGIN</h1>
+        </div>
+        <div class="mb-2 form-email">
+            <label for="email-login" class="form-label email-label">EMAIL</label>
+            <input type="email" class="form-control email-input" id="email-login">
+        </div>
+        <div class="mb-4 form-email">
+            <label for="password-login" class="form-label password-label">PASSWORD</label>
+            <input type="password" class="form-control password-input" id="password-login">
+        </div>
+        <div class="mb-2 form-button">
+            <button type="button" class="btn" id="btnSignIn-login">SIGN IN</button>
+            <button type="button" class="btn" id="btnSignUp-login">SIGN UP</button>
+        </div>
+    </div>
+</section>
+
+<section id="registerSection">
+    <div>
+        <img src="assets/images/LoginPage.jpeg" alt="loginPage" class="loginImage">
+        <img src="assets/images/backButton.png" alt="loginPage" class="btnLeftBack">
+    </div>
+    <div class="form-login">
+        <div>
+            <h1 class="mb-5 heading">REGISTER</h1>
+        </div>
+        <div class="mb-2 form-email">
+            <label for="email-login" class="form-label email-label">EMAIL</label>
+            <input type="email" class="form-control email-input" id="email-register">
+        </div>
+        <div class="mb-4 form-email">
+            <label for="password-login" class="form-label password-label">PASSWORD</label>
+            <input type="password" class="form-control password-input" id="password-register">
+        </div>
+        <div class="mb-2 form-button">
+            <button type="button" class="btn" id="btnSignIn-register">SIGN IN</button>
+            <button type="button" class="btn" id="btnSignUp-register">SIGN UP</button>
+        </div>
+    </div>
+</section>
+
+<section id="gameSection">
+    <div>
+        <img src="assets/images/gameSection.jpg" alt="gamePage" class="gameImage">
+    </div>
+    <!--<div class="form-login">
+        <div>
+            <h1 class="mb-5 heading">REGISTER</h1>
+        </div>
+        <div class="mb-2 form-email">
+            <label for="email-login" class="form-label email-label">EMAIL</label>
+            <input type="email" class="form-control email-input" id="email-register">
+        </div>
+        <div class="mb-4 form-email">
+            <label for="password-login" class="form-label password-label">PASSWORD</label>
+            <input type="password" class="form-control password-input" id="password-register">
+        </div>
+        <div class="mb-2 form-button">
+            <button type="button" class="btn" id="btnSignIn-register">SIGN IN</button>
+            <button type="button" class="btn" id="btnSignUp-register">SIGN UP</button>
+        </div>
+    </div>-->
+</section>
+
+<section id="successAlertSection">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+    </svg>
+    <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        <div id="successAlert">
+            An example success alert with an icon
+        </div>
+    </div>
+</section>
+
+<section id="warningAlertSection">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </symbol>
+        <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        </symbol>
+        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+        </symbol>
+    </svg>
+    <div class="alert alert-warning d-flex align-items-center" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <div id="warningAlert">
+            An example warning alert with an icon
+        </div>
     </div>
 </section>
 
@@ -41,14 +146,13 @@
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/jquery/jquery-3.6.0.min.js"></script>
 <script src="controllers/DashBoard.js"></script>
+<script src="controllers/LoginController.js"></script>
 <script>
-
-    $('#btnLogin').click(function (e) {
-
+    $(document).ready(function() {
+    // Delay for 5 seconds and then fade out in 0.5 seconds
+    $('#successAlertSection').delay(5000).fadeOut(500);
+    $('#warningAlertSection').delay(5000).fadeOut(500);
     });
 
-    function handleSignUp() {
-        console.log("register")
-    }
 </script>
 </html>
