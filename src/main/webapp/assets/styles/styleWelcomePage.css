@@ -1,0 +1,129 @@
+/*welcome page*/
+#welcomeImage{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#heading{
+    position: absolute;
+    right: 0;
+    bottom: 29px;
+    width: 45%;
+}
+
+#button-div{
+    position: absolute;
+    right: 101px;
+    bottom: 10px;
+    width: 413px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.welcome-page-button{
+    width: 193px;
+    height: 53px;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 25px;
+    font-weight: 700;
+    color: #EE4510;
+    background-image: url("../images/loginbutton.png");
+    background-size:cover;
+    background-position:center center;
+    cursor: pointer;
+}
+
+.btnImage{
+    position: absolute;
+    bottom: 0;
+    width: 184px;
+    height: 157px;
+}
+
+#btnLoginImage{
+    position: absolute;
+    left: 10px;
+}
+
+#header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 1000px;
+    margin: auto;
+    width: 550px;
+    height: 360px;
+    filter: drop-shadow(-1px 18px 13px black);
+}
+
+#main_title{
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    font-family: auto;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 985px;
+    margin: 0;
+    z-index: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    background: url(../images/back.png);
+    background-position: 0 0;
+    -webkit-background-clip: text;
+    animation: back 10s linear infinite;
+}
+
+@keyframes back {
+    100%{
+        background-position: 2000px 0;
+    }
+}
+
+/*loader*/
+#container{
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    z-index: 1;
+}
+
+#loader{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/*alerts*/
+#successAlertSection{
+    width: 30%;
+    position: relative;
+    z-index: 3;
+}
+#warningAlertSection{
+    width: 30%;
+    position: relative;
+    z-index: 3;
+}
+#errorAlertSection{
+    width: 30%;
+    position: relative;
+    z-index: 3;
+}
+

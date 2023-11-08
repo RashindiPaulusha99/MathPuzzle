@@ -3,28 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Math Puzzle With tomato API</title>
-    <link rel="stylesheet" href="assets/styles/style.css">
+
+    <!--styles-->
+    <link rel="stylesheet" href="assets/styles/styleWelcomePage.css">
+    <link rel="stylesheet" href="assets/styles/styleLoginRegisterPage.css">
+    <link rel="stylesheet" href="assets/styles/styleGamePage.css">
+
+    <!--css-->
+    <link rel="stylesheet" href="assets/jquery/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-...">
+
+    <!--js-->
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="assets/bootstrap/css/bootstrap.min.css" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Lobster+Two:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-..."><!-- Paste the CSS link here -->
+
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Spicy+Rice&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Lobster+Two:wght@400;700&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
 <section id="welcomeSection">
-    <div>
-        <img src="assets/images/WelcomePage.jpeg" alt="welcomepage" id="welcomeImage">
-        <img src="assets/images/math.png" alt="welcomepage" id="heading">
+    <!--loader---->
+    <div id="container">
+        <img src="assets/gif/loader.gif" alt="" id="loader">
     </div>
+    <div>
+        <!--welcome page-fullscreen image-->
+        <img src="assets/images/WelcomePage.jpeg" alt="welcomepage" id="welcomeImage">
+        <!--heading with image-->
+        <img src="assets/images/header1.png" alt="" id="header">
+        <h1 id="main_title">MATH PUZZLE</h1>
+    </div>
+    <!--sign in & sign up buttons-->
     <div id="button-div">
         <button class="welcome-page-button" id="btnLogin">SIGN IN</button>
         <button class="welcome-page-button" id="btnRegister">SIGN UP</button>
@@ -79,6 +97,21 @@
         <div class="mb-2 form-button">
             <button type="button" class="btn" id="btnSignIn-register">SIGN IN</button>
             <button type="button" class="btn" id="btnSignUp-register">SIGN UP</button>
+        </div>
+    </div>
+</section>
+
+<section id="gameStartSection">
+    <div >
+        <img src="assets/images/gamestart.jpeg" alt="gameStartPage" class="gameImage">
+        <img src="assets/images/backButton.png" alt="loginPage" class="btnLeftBack">
+    </div>
+    <div class="gameStartForm">
+        <div>
+            <h1 class="mb-5 startHeading">START GAME</h1>
+            <h2 class="mb-5 levelTitle">LEVEL</h2>
+            <h6 class="mb-5 levelCount">1</h6>
+            <img src="assets/images/playButton.png" alt="playButton" id="btnPlay">
         </div>
     </div>
 </section>
@@ -163,11 +196,11 @@
     </div>
 </section>
 
-</body>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/jquery/jquery-3.6.0.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="controllers/DashBoard.js"></script>
 <script src="controllers/LoginController.js"></script>
+<script src="controllers/GameController.js"></script>
 <script>
     $(document).ready(function() {
         // Delay for 5 seconds and then fade out in 0.5 seconds
@@ -176,5 +209,11 @@
         $('#errorAlertSection').delay(5000).fadeOut(500);
     });
 
+    $(window).on('load',function () {
+        $("#container").fadeOut(1000);
+    });
+
 </script>
+
+</body>
 </html>

@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="math@localhost" uuid="d15cc2cd-a117-4592-a4d0-6464ec787444">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/math</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="math@localhost [2]" uuid="1303dcc7-a32b-4b28-b758-1b0166698b83">
+    <data-source source="LOCAL" name="math@localhost" uuid="5a15e04c-0799-4ccf-a27b-dd710168451a">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

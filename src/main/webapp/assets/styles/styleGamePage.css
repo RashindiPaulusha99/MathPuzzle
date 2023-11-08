@@ -1,0 +1,147 @@
+/*game start page*/
+.gameStartForm{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 60%;
+    height: 60%;
+    text-align: center;
+}
+
+/*#gameStartSection{
+    background-image: url("../images/gamestart.jpeg");
+    background-size:cover;
+    background-position:center center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}*/
+
+.startHeading{
+    color: white;
+    font-size: 88px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Spicy Rice', serif;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.levelTitle{
+    color: white;
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Spicy Rice', serif;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.levelCount{
+    color: white;
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Spicy Rice', serif;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#btnPlay{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 143px;
+    bottom: -76px;
+    cursor: pointer;
+}
+
+/*game page*/
+.gameImage{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.form-game{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#scoreHeading{
+    width: 98%;
+    height: 71px;
+    position: absolute;
+    top: 16px;
+    background-color: white;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#scoreTitle{
+    color: black;
+    text-align: center;
+}
+
+.gamePhoto{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+}
+
+.form-answer-button{
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 50%;
+    margin: auto;
+}
+
+#btnA1{
+    width: 100px;
+    background-color: white;
+    border: 1px solid transparent;
+    color: black;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+#btnA2{
+    width: 100px;
+    background-color: white;
+    border: 1px solid transparent;
+    color: black;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+#btnA3{
+    width: 100px;
+    background-color: white;
+    border: 1px solid transparent;
+    color: black;
+    font-weight: 500;
+    font-size: 25px;
+}

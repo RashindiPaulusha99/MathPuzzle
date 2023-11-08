@@ -1,5 +1,7 @@
 package com.uob.mathpuzzle.service;
 
-public interface GameService {
+import com.uob.mathpuzzle.dto.GameResDto;
 
+public interface GameService {
+    GameResDto getNewQuestion();
 }

@@ -40,6 +40,7 @@ $("#btnSignUp-register").click(function () {
 
                     $("#loginSection").css('display','block');
                     $("#gameSection").css('display','none');
+                    $("#gameStartSection").css('display','none');
                     $("#registerSection").css('display','none');
                     $("#btnLeftBack").css('display','block');
                     $("#welcomeSection").css('display','none');
@@ -115,7 +116,8 @@ $("#btnSignIn-login").click(function () {
                     $("#registerSection").css('display','none');
                     $("#btnLeftBack").css('display','none');
                     $("#welcomeSection").css('display','none');
-                    $("#gameSection").css('display','block');
+                    $("#gameStartSection").css('display','block');
+                    $("#gameSection").css('display','none');
 
                 }else if (response.success == false){
                     $("#errorAlertSection").css('display','block');

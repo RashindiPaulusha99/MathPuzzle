@@ -1,0 +1,101 @@
+/*login page*/
+.loginImage{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.heading{
+    color: white;
+    font-weight: 700;
+}
+
+.btnLeftBack{
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.form-login{
+    position: absolute;
+    bottom: 191px;
+    right: 62px;
+    width: 27%;
+    height: 34%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.form-button{
+    display: flex;
+    justify-content: space-between;
+}
+
+.email-input{
+    color: black;
+}
+
+.email-label{
+    color: white;
+    font-weight: 500;
+}
+
+.password-input{
+    color: black;
+}
+
+.password-label{
+    color: white;
+    font-weight: 500;
+}
+
+#btnSignIn-login{
+    width: 40%;
+    background-color: white;
+    border: 1px solid transparent;
+    color: black;
+    font-weight: 700;
+}
+
+#btnSignUp-login{
+    width: 40%;
+    background-color: white;
+    border: 1px solid transparent;
+    color: black;
+    font-weight: 700;
+}
+
+/*register page*/
+#btnSignIn-register{
+    width: 40%;
+    background-color: white;
+    border: 1px solid transparent;
+    color: black;
+    font-weight: 700;
+}
+
+#btnSignUp-register{
+    width: 40%;
+    background-color: white;
+    border: 1px solid transparent;
+    color: black;
+    font-weight: 700;
+}
+
+.username-input{
+    color: black;
+}
+
+.username-label{
+    color: white;
+    font-weight: 500;
+}
