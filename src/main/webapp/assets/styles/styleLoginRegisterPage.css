@@ -10,9 +10,35 @@
     margin: auto;
 }
 
+#loginRegisterHeader{
+    position: absolute;
+    top: 0;
+    bottom: 500px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 550px;
+    height: 190px;
+    filter: drop-shadow(-1px 18px 13px black);
+}
+
+#loginRegisterFrame{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    margin: auto;
+    /*width: 350px;*/
+}
+
 .heading{
     color: white;
     font-weight: 700;
+    text-align: center;
+    position: relative;
+    top: 30px;
+    font-size: 40px;
 }
 
 .btnLeftBack{
@@ -22,10 +48,18 @@
     width: 100px;
     cursor: pointer;
     z-index: 2;
+    filter: drop-shadow(-1px 18px 13px black);
+    transition-property: width,height;
+    transition-duration: 1s;
+}
+
+.btnLeftBack:hover{
+    width:80px ;
+
 }
 
 .form-login{
-    position: absolute;
+    /*position: absolute;
     bottom: 191px;
     right: 62px;
     width: 27%;
@@ -33,6 +67,22 @@
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+    background-color: #e9ecef;*/
+
+    position: absolute;
+    bottom: 80px;
+    right: 62px;
+    width: 320px;
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 21px;
+    border-radius: 20px;
+    filter: drop-shadow(-1px 18px 13px black);
+    border: 1px solid white;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    /*box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;*/
 }
 
 .form-button{
@@ -42,6 +92,8 @@
 
 .email-input{
     color: black;
+    /*filter: drop-shadow(-1px 18px 13px black);*/
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
 }
 
 .email-label{
@@ -51,6 +103,8 @@
 
 .password-input{
     color: black;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    /*filter: drop-shadow(-1px 18px 13px black);*/
 }
 
 .password-label{
@@ -60,39 +114,40 @@
 
 #btnSignIn-login{
     width: 40%;
-    background-color: white;
-    border: 1px solid transparent;
-    color: black;
+    border: 3px solid white;
+    color: white;
     font-weight: 700;
 }
 
+
 #btnSignUp-login{
     width: 40%;
-    background-color: white;
-    border: 1px solid transparent;
-    color: black;
+    border: 3px solid white;
+    color: white;
     font-weight: 700;
+    filter: drop-shadow(-1px 18px 13px black);
 }
 
 /*register page*/
 #btnSignIn-register{
     width: 40%;
-    background-color: white;
-    border: 1px solid transparent;
-    color: black;
+    border: 3px solid white;
+    color: white;
     font-weight: 700;
+    filter: drop-shadow(-1px 18px 13px black);
 }
 
 #btnSignUp-register{
     width: 40%;
-    background-color: white;
-    border: 1px solid transparent;
-    color: black;
+    border: 3px solid white;
+    color: white;
     font-weight: 700;
+    filter: drop-shadow(-1px 18px 13px black);
 }
 
 .username-input{
     color: black;
+    filter: drop-shadow(-1px 18px 13px black);
 }
 
 .username-label{

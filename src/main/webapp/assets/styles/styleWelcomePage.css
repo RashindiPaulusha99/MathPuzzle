@@ -10,6 +10,36 @@
     margin: auto;
 }
 
+#woodenStartBoard{
+    position: absolute;
+    top: -54px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 385px;
+    filter: drop-shadow(1px 14px 13px black);
+}
+
+#welcomeTomatoImage1{
+    position: absolute;
+    right: 655px;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: 300px;
+    filter: drop-shadow(1px 14px 13px white);
+}
+
+#welcomeTomatoImage2{
+    position: absolute;
+    right: 0;
+    left: 655px;
+    bottom: 0;
+    margin: auto;
+    width: 300px;
+    filter: drop-shadow(1px 14px 13px white);
+}
+
 #heading{
     position: absolute;
     right: 0;
@@ -18,14 +48,31 @@
 }
 
 #button-div{
-    position: absolute;
+    /*position: absolute;
+    z-index: 1;
     right: 101px;
-    bottom: 10px;
+    bottom: 158px;
+    width: 413px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;*/
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 158px;
+    margin: auto;
     width: 413px;
     height: 100px;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+}
+
+#startBoard:hover{
+    width:370px ;
+    height:370px ;
 }
 
 .welcome-page-button{
@@ -55,10 +102,18 @@
 }
 
 #header{
-    position: absolute;
+    /*position: absolute;
     top: 0;
     left: 0;
     right: 1000px;
+    margin: auto;
+    width: 550px;
+    height: 360px;
+    filter: drop-shadow(-1px 18px 13px black);*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     margin: auto;
     width: 550px;
     height: 360px;
@@ -66,15 +121,19 @@
 }
 
 #main_title{
-    font-size: 70px;
+    font-size: 66px;
     font-weight: bold;
     text-align: center;
     font-family: auto;
     position: absolute;
     top: 80px;
     left: 0;
-    right: 985px;
-    margin: 0;
+    right: 0;
+    margin: auto;
+    width: 265px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
     z-index: 1;
     color: transparent;
     -webkit-text-stroke: 1px white;
@@ -90,13 +149,68 @@
     }
 }
 
+.button{
+    position:relative;
+    top: -28px;
+    display:inline-block;
+}
+
+.button a{
+    color:white;
+    font-family:Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:32px;
+    text-align: center;
+    text-decoration:none;
+    background-color:#FFA12B;
+    display:block;
+    position:relative;
+    padding:20px 40px;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-shadow: 0px 1px 0px #000;
+    filter: dropshadow(color=#000, offx=0px, offy=1px);
+
+    -webkit-box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+    -moz-box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+    box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.button a:active{
+    top:10px;
+    background-color:#F78900;
+
+    -webkit-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+    -moz-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+    box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+}
+
+.button:after{
+    content:"";
+    height:100%;
+    width:100%;
+    padding:4px;
+    position: absolute;
+    bottom:-15px;
+    left:-4px;
+    z-index:-1;
+    background-color:#2B1800;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
 /*loader*/
 #container{
     width: 100vw;
     height: 100vh;
     background-color: white;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
 }
 
 #loader{
@@ -108,6 +222,7 @@
     left: 0;
     right: 0;
     margin: auto;
+    z-index: 2;
 }
 
 /*alerts*/
