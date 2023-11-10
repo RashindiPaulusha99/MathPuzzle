@@ -24,37 +24,33 @@
 }*/
 
 .startHeading{
-    color: white;
+    color: #dc3545;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Spicy Rice', serif;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 48px;
+    font-size: 81px;
 }
 
 .levelTitle{
     color: white;
-    font-size: 45px;
+    font-size: 50px;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Spicy Rice', serif;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    position: relative;
 }
 
 .levelCount{
+    position: relative;
     color: white;
-    font-size: 45px;
+    font-size: 50px;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Spicy Rice', serif;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #btnPlay{
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    height: 143px;
-    bottom: -76px;
-    cursor: pointer;
+    top: -2px;
 }
 
 .startBoardImage{
@@ -76,6 +72,123 @@
     margin: auto;
     width: 293px;
 }
+
+#headerBar{
+    position: absolute;
+    top: -120px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 75%;
+    height: 78px;
+}
+
+.btnInStart1{
+    position: absolute;
+    top: 0;
+    width: 96px;
+    height: 72px;
+    left: 110px;
+    filter: drop-shadow(-5px 18px 13px black);
+}
+
+.btnInStart1Icon{
+    position: absolute;
+    top: 2px;
+    width: 60px;
+    height: 59px;
+    left: 127px;
+    filter: drop-shadow(-5px 18px 13px black);
+}
+
+.btnInStart2{
+    position: absolute;
+    top: 0;
+    width: 96px;
+    height: 72px;
+    right: 130px;
+    filter: drop-shadow(-5px 18px 13px black);
+}
+
+.btnInStart2Icon{
+    position: absolute;
+    top: 12px;
+    width: 44px;
+    height: 40px;
+    right: 156px;
+    filter: drop-shadow(-5px 18px 13px black);
+}
+
+.barInStart{
+    position: absolute;
+    top: -35px;
+    width: 150px;
+    height: 133px;
+    filter: drop-shadow(-5px 18px 13px black);
+}
+
+.startSideBoard{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 364px;
+    filter: drop-shadow(-5px 18px 13px black);
+}
+
+#scoreCount{
+    color: white;
+    position: absolute;
+    text-align: center;
+    left: 191px;
+    top: 13px;
+    width: 100px;
+    height: 43px;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#levelCount{
+    color: white;
+    position: absolute;
+    text-align: center;
+    right: 45px;
+    top: 13px;
+    width: 100px;
+    height: 43px;
+    z-index: 1;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#levelBoard{
+    position: absolute;
+    top: 139px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 168px;
+}
+
+#woodenLevelBoard{
+   position: absolute;
+    top: -38px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 385px;
+}
+
+.tomatoInStart{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    filter: drop-shadow(-5px 18px 13px black);
+}
+
 
 /*game page*/
 .gameImage{
@@ -144,30 +257,38 @@
 }
 
 #btnA1{
+    color: white;
+    border-radius: 100%;
     width: 100px;
-    background-color: white;
-    border: 1px solid transparent;
-    color: black;
-    font-weight: 500;
-    font-size: 25px;
+    height: 100px;
+    font-size: 32px;
+    font-weight: 700;
 }
 
 #btnA2{
+    color: white;
+    border-radius: 100%;
     width: 100px;
-    background-color: white;
-    border: 1px solid transparent;
-    color: black;
-    font-weight: 500;
-    font-size: 25px;
+    height: 100px;
+    font-size: 32px;
+    font-weight: 700;
 }
 
 #btnA3{
+    color: white;
+    border-radius: 100%;
     width: 100px;
-    background-color: white;
+    height: 100px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.btnAnswers{
+    /*background-color: white;*/
     border: 1px solid transparent;
-    color: black;
-    font-weight: 500;
-    font-size: 25px;
+    filter: drop-shadow(-5px 18px 13px black);
+    width: 100px;
+    height: 100px;
 }
 
 /********************************/
@@ -188,6 +309,7 @@
     bottom: 0;
     left: 2px;
     margin: auto;
+    border-radius: 25px;
 }
 
 /*#image{
@@ -216,10 +338,10 @@
 
 #button_panel{
     width: 400px;
-    height: 300px;
+    height: 337px;
     position: absolute;
     top: 0;
-    left: 1100px;
+    right: 0;
 }
 
 #scoreTitle{
@@ -251,27 +373,103 @@
     right: 0;
 }
 
-#time{
-    width: 250px;
-    height: 250px;
+.menuFrame{
     position: absolute;
-    top: -10px;
+    display: flex;
+    flex-direction: column;
+    top: 100px;
     left: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.menu{
+    width: 250px;
+    height: 175px;
+    filter: drop-shadow(-5px 18px 13px black);
+}
+
+#menu1{
+    position: relative;
+    top: 27px;
+}
+
+#menu2{
+    position: relative;
+    bottom: 68px;
+}
+
+#menu3{
+    position: relative;
+    bottom: 162px;
+}
+
+#star{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 74px;
+    left: 30px;
+}
+
+#fullScore{
+    position: absolute;
+    top: 91px;
+    left: 30px;
     color: white;
+    text-align: center;
+}
+
+#heart{
+    width: 71px;
+    height: 70px;
+    position: absolute;
+    top: 161px;
+    left: 34px;
+}
+
+#lives{
+    position: absolute;
+    top: 174px;
+    left: 34px;
+    color: white;
+    text-align: center;
+}
+
+#timerIcon{
+    width: 62px;
+    height: 62px;
+    position: absolute;
+    top: 244px;
+    left: 38px;
+}
+
+#time{
+    position: absolute;
+    top: 254px;
+    left: 38px;
+    color: white;
+    text-align: center;
 }
 
 #display_time_header{
-    font-size: 24px;
+    font-size: 27px;
     position: absolute;
-    top: 66px;
-    left: 82px;
+    top: 92px;
+    left: 0;
+    right: 0;
+    margin: auto;
     color: white;
+    text-align: center;
+    z-index: 1;
+    font-weight: 700;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #display_time{
     font-size: 30px;
     position: absolute;
-    top: 90px;
+    top: 149px;
     left: 112px;
     color: white;
 }
@@ -402,7 +600,7 @@
     height: 80px;
 }
 
-#food_qty{
+.food_qty{
     width: 450px;
     height: 250px;
     position: absolute;
@@ -410,6 +608,17 @@
     left: 0;
     bottom: 0;
     margin: auto;
+}
+
+.levelHeading{
+    width: 360px;
+    height: 250px;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    filter: drop-shadow(-5px 18px 13px black);
 }
 
 #display_speedHeader{
@@ -442,4 +651,17 @@
     left: 127px;
     color: white;
     font-size: 30px;
+}
+
+.game{
+    width: 553px;
+    height: 363px;
+    filter: drop-shadow(-5px 18px 13px black);
+    position: absolute;
+    top: 4px;
+    right: 0;
+    bottom: 0;
+    left: 2px;
+    margin: auto;
+    border-radius: 25px;
 }
