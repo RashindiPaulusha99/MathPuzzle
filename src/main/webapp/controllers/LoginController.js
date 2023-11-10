@@ -101,6 +101,11 @@ $("#btnSignIn-login").click(function () {
             success: function (response) {
                 if (response.success == true) {
 
+                    localStorage.setItem("authToken", response.access_token);
+                    localStorage.setItem("playerId", response.user.id);
+
+                    getLevelAndScore();
+
                     $("#email-login").val('')
                     $("#password-login").val('')
 
@@ -141,3 +146,31 @@ $("#btnSignIn-login").click(function () {
         });
     }
 });
+
+function getLevelAndScore() {
+    $.ajax({
+        url: "http://localhost:8080/v1/game/get/start/ScoreLevel",
+        method: "GET",
+        crossDomain: true,
+        contentType: "application/json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("authToken")
+        },
+        success: function (response) {
+            if (response.success == true) {
+
+                $("#fullScoreCount").text(response.body.score);
+                $("#fullScore").text(response.body.score);
+                $("#fullLevelCount").text(response.body.level+1);
+                $(".levelCount").text(response.body.level+1);
+                $("#display_level_header_count").text(response.body.level+1);
+
+            }else if (response.success == false){
+
+            }
+        },
+        error: function (ob, statusText, error) {
+            console.log(ob.responseJSON.message)
+        }
+    });
+}

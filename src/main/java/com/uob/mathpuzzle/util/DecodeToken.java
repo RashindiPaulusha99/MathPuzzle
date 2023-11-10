@@ -19,23 +19,24 @@ public class DecodeToken {
     private final ModelMapper modelMapper;
 
     @Autowired
-    PlayerRepository adminRepo;
+    PlayerRepository playerRepository;
 
     public DecodeToken(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
 
     // get admin from token
-    public PlayerDTO checkAccessTokenAndGetAdminUser(String token) {
+    public PlayerDTO checkAccessTokenAndGetPlayer(String token) {
         log.info("Execute method checkAccessTokenAndGetAdminUser ");
 
         try {
 
             // get user object from token
             JSONObject userFromToken = CustomUserAuthenticator.getUserFromToken(token);
+            System.out.println(userFromToken);
 
-            //get admin by email
-            return findAdminUserByEmail(userFromToken.getString("user_name"));
+            //get player by email
+            return findPlayerByEmail(userFromToken.getString("user_name"));
 
         } catch (Exception e) {
             log.error("Error at method checkAccessTokenAndGetAdminUser: " + e.getMessage());
@@ -64,17 +65,17 @@ public class DecodeToken {
     }
 
     // find admin by email
-    private PlayerDTO findAdminUserByEmail(String email){
-        log.info("Execute method findAdminUserByEmail :"+email);
+    private PlayerDTO findPlayerByEmail(String email){
+        log.info("Execute method findPlayerByEmail :"+email);
 
         try {
 
             // get admin by email
-            Optional<Player> adminUsersByEmail = adminRepo.findByEmail(email);
-            return modelMapper.map(adminUsersByEmail, PlayerDTO.class);
+            Optional<Player> adminUsersByEmail = playerRepository.findByEmail(email);
+            return modelMapper.map(adminUsersByEmail.get(), PlayerDTO.class);
 
         } catch (Exception e) {
-            log.error("Error at method findAdminUserByEmail: " + e.getMessage());
+            log.error("Error at method findPlayerByEmail: " + e.getMessage());
             throw e;
         }
     }

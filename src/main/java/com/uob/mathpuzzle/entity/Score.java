@@ -25,6 +25,7 @@ public class Score {
     private String question_link;
     private double answer;
     private boolean is_correct;
+    private int score;
     @JsonFormat(pattern = "dd-MM-yyyy HH:MM:ss")
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedTimestamp;

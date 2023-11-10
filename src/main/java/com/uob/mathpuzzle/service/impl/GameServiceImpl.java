@@ -1,6 +1,9 @@
 package com.uob.mathpuzzle.service.impl;
 
 import com.uob.mathpuzzle.dto.GameResDto;
+import com.uob.mathpuzzle.dto.PlayerDTO;
+import com.uob.mathpuzzle.dto.ScoreLevelDTO;
+import com.uob.mathpuzzle.repository.GameRepository;
 import com.uob.mathpuzzle.service.GameService;
 import com.uob.mathpuzzle.util.DecodeToken;
 import com.uob.mathpuzzle.util.TomatoAPI;
@@ -23,18 +26,48 @@ public class GameServiceImpl implements GameService{
     private final RestTemplate restTemplate;
     private final BCryptPasswordEncoder encoder;
     private final TomatoAPI tomatoAPI;
+    private final GameRepository gameRepository;
+    private final DecodeToken decodeToken;
 
     @Autowired
-    public GameServiceImpl(ModelMapper modelMapper, RestTemplate restTemplate, BCryptPasswordEncoder encoder,TomatoAPI tomatoAPI) {
+    public GameServiceImpl(ModelMapper modelMapper, RestTemplate restTemplate, BCryptPasswordEncoder encoder, TomatoAPI tomatoAPI, GameRepository gameRepository, DecodeToken decodeToken) {
         this.modelMapper = modelMapper;
         this.restTemplate = restTemplate;
         this.encoder = encoder;
         this.tomatoAPI = tomatoAPI;
+        this.gameRepository = gameRepository;
+        this.decodeToken = decodeToken;
     }
-
 
     @Override
     public GameResDto getNewQuestion() {
-        return tomatoAPI.getNewQuestion();
+        log.info("Execute method getNewQuestion :");
+
+        try {
+            return tomatoAPI.getNewQuestion();
+        } catch (Exception e) {
+            log.error("Error at method getNewQuestion: " + e.getMessage());
+            throw e;
+        }
+    }
+
+    @Override
+    public ScoreLevelDTO getScoreLevelInStart(String token) {
+
+        log.info("Execute method getScoreLevelInStart :");
+
+        try {
+            // get player from token
+            PlayerDTO playerDTO = decodeToken.checkAccessTokenAndGetPlayer(token);
+
+            ScoreLevelDTO scoreLevelDTO = new ScoreLevelDTO();
+            scoreLevelDTO.setLevel(gameRepository.findByLevel(playerDTO.getId()));
+            scoreLevelDTO.setScore(gameRepository.findByScores(playerDTO.getId()) == null ? 0 : gameRepository.findByScores(playerDTO.getId()));
+
+            return scoreLevelDTO;
+        } catch (Exception e) {
+            log.error("Error at method getScoreLevelInStart: " + e.getMessage());
+            throw e;
+        }
     }
 }

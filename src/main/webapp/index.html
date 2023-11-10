@@ -137,7 +137,7 @@
             <img src="assets/images/woodenStartBoard.png" alt="woodenStartBoard" id="woodenLevelBoard">
             <h2 class="mb-5 levelTitle">LEVEL</h2>
             <img src="assets/images/levelboard.png" alt="levelBoard" id="levelBoard">
-            <h6 class="mb-5 levelCount">1</h6>
+            <h6 class="mb-5 levelCount"></h6>
             <div ontouchstart="">
                 <div class="button" id="btnPlay" >
                     <a href="#">PLAY</a>
@@ -149,13 +149,13 @@
                 <img src="assets/images/woodenField.png" alt="score" class="barInStart">
                 <img src="assets/images/woodenButton.png" alt="score" class="btnInStart1">
                 <img src="assets/images/start.png" alt="score" class="btnInStart1Icon">
-                <div id="scoreCount"><h3>1</h3></div>
+                <div id="scoreCount"><h3 id="fullScoreCount"></h3></div>
             </div>
             <div>
                 <img src="assets/images/woodenField.png" alt="score" class="barInStart">
                 <img src="assets/images/woodenButton.png" alt="score" class="btnInStart2">
                 <img src="assets/images/level1.webp" alt="score" class="btnInStart2Icon">
-                <div id="levelCount"><h3>1</h3></div>
+                <div id="levelCount"><h3 id="fullLevelCount"></h3></div>
             </div>
 
         </div>
@@ -171,9 +171,6 @@
         <img src="assets/images/bg5.png" alt="gamePage" class="gameImage">
         <img src="assets/images/backButton.png" alt="loginPage" class="btnLeftBack">
     </div>
-    <!--<div class="button_panel">
-        <img src="assets/images/tomato1.png" alt="game" class="game">
-    </div>-->
     <div class="mb-2 form-answer-button">
         <img src="assets/images/button.png" alt="gamePage" class="btnAnswers">
         <img src="assets/images/button.png" alt="gamePage" class="btnAnswers">
@@ -184,7 +181,6 @@
         <button type="button" class="btn btnAnswers" id="btnA2">2</button>
         <button type="button" class="btn btnAnswers" id="btnA3">3</button>
     </div>
-
     <div class="menuFrame">
         <img src="assets/images/time.png" alt="" class="menu" id="menu1">
         <img src="assets/images/time.png" alt="" class="menu" id="menu2">
@@ -196,37 +192,22 @@
         <img src="assets/images/timer.png" alt="" class="menu" id="timerIcon">
     </div>
     <div class="menuFrame">
-        <h2 class="menu" id="fullScore">100</h2>
-        <h2 class="menu" id="lives">100</h2>
+        <h2 class="menu" id="fullScore">0</h2>
+        <h2 class="menu" id="lives">1</h2>
         <h2 class="menu" id="time">1.00</h2>
     </div>
-    <h1 id="display_time_header">LEVEL <span>1</span></h1>
-<!--    <h1 id="display_time">1</h1>-->
-<!--    <img src="assets/images/wood_stand%20(4).png" alt="" class="food_qty">-->
+    <h1 id="display_level_header">LEVEL <span id="display_level_header_count">1</span></h1>
+
     <img src="assets/images/star-badge-6953316-5703390.webp" alt="" class="levelHeading">
 
     <div><img src="assets/images/score.png" alt="score" class="tomatoInStart"></div>
 
-    <!--menu button click sound-->
-    <audio id="menu_sound">
-        <source src="assets/audio/mixkit-video-game-mystery-alert-234.wav" type="audio/mpeg">
-    </audio>
-
     <!--play canvas-->
     <div id="main_container">
         <img src="assets/images/5196-4P-1-Wood-Texture.jpg" alt="" id="canvasbg">
-        <img src="assets/images/tomato1.png" alt="game" class="game">
+        <img src="" alt="game" class="game" id="tomatoGame">
         <canvas id="canvas"></canvas>
     </div>
-    <!--play model-->
-    <!--<div class="play_model_container">
-        <img src="assets/images/frame3.png" alt="" id="model_bg">
-        <div class="model_play">
-            <img src="assets/images/playbtn.png" alt="" id="play_mode_btn">
-            <img src="assets/images/image-processing20220118-5187&#45;&#45;unscreen.gif" alt="" id="play_snake">
-            <img src="assets/icons/icons8-multiply-60.png" alt="" id="close_play_model">
-        </div>
-    </div>-->
 
     <!--play button click sound-->
     <audio id="play">
@@ -261,8 +242,8 @@
         <source src="assets/audio/mixkit-player-losing-or-failing-2042.wav" type="audio/mpeg">
     </audio>
 
-    <!--&lt;!&ndash;win model&ndash;&gt;
-    <div class="win_container">
+    <!--win model---->;
+    <!--<div class="win_container">
         <img src="assets/images/gameoverbg.png" alt="" id="win_bg">
         <div class="model">
             <img src="assets/images/output-onlinegiftools%20(1).gif" alt="" id="win">
@@ -292,25 +273,7 @@
 
 </section>
 
-<!--<section id="gameSection">
-    <div>
-        <img src="assets/images/gameSection.jpg" alt="gamePage" class="gameImage">
-        <img src="assets/images/backButton.png" alt="loginPage" class="btnLeftBack">
-    </div>
-    <div class="form-game">
-        <div id="scoreHeading" class="mb-5">
-            <h1 class="mb-2 mt-2 heading" id="scoreTitle">SCORE :<span class="mb-2 mt-2">0</span></h1>
-        </div>
-        <div class="gamePhoto">
-            <img src="assets/images/tomato1.png" alt="game" class="game">
-        </div>
-        <div class="mb-2 form-answer-button">
-            <button type="button" class="btn" id="btnA1">1</button>
-            <button type="button" class="btn" id="btnA2">2</button>
-            <button type="button" class="btn" id="btnA3">3</button>
-        </div>
-    </div>
-</section>-->
+<section id="winSection">fgdfh</section>
 
 <section id="successAlertSection">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
