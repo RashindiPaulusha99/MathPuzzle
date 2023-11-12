@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,9 +14,11 @@ import java.util.Date;
 public class ScoreDTO {
 
     private Long id;
-    private Player player;
     private String question_link;
-    private double answer;
-    private boolean is_correct;
-    private Date updatedTimestamp;
+    private int answer;
+    private int level;
+    private Boolean is_correct;
+    private int score;
+
+
 }

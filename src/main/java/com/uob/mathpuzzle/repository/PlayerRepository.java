@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface PlayerRepository extends JpaRepository<Player,Long> {
 
-    //get admin user details by email
+    //get user details by email
     Optional<Player> findByEmail(String email);
 
 }

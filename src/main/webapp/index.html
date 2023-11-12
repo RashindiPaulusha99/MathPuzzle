@@ -7,7 +7,9 @@
     <!--styles-->
     <link rel="stylesheet" href="assets/styles/styleWelcomePage.css">
     <link rel="stylesheet" href="assets/styles/styleLoginRegisterPage.css">
+    <link rel="stylesheet" href="assets/styles/styleGameStartPage.css">
     <link rel="stylesheet" href="assets/styles/styleGamePage.css">
+    <link rel="stylesheet" href="assets/styles/styleModels.css">
 
     <!--css-->
     <link rel="stylesheet" href="assets/jquery/jquery-ui.min.css">
@@ -172,14 +174,28 @@
         <img src="assets/images/backButton.png" alt="loginPage" class="btnLeftBack">
     </div>
     <div class="mb-2 form-answer-button">
-        <img src="assets/images/button.png" alt="gamePage" class="btnAnswers">
-        <img src="assets/images/button.png" alt="gamePage" class="btnAnswers">
-        <img src="assets/images/button.png" alt="gamePage" class="btnAnswers">
+        <img src="assets/images/answerbutton2.png" alt="gamePage" class="btnAnswers">
+        <img src="assets/images/answerbutton2.png" alt="gamePage" class="btnAnswers">
+        <img src="assets/images/answerbutton2.png" alt="gamePage" class="btnAnswers">
+        <img src="assets/images/answerbutton2.png" alt="gamePage" class="btnAnswers">
+        <img src="assets/images/answerbutton2.png" alt="gamePage" class="btnAnswers">
+        <img src="assets/images/answerbutton2.png" alt="gamePage" class="btnAnswers">
+        <img src="assets/images/answerbutton2.png" alt="gamePage" class="btnAnswers">
+        <img src="assets/images/answerbutton2.png" alt="gamePage" class="btnAnswers">
+        <img src="assets/images/answerbutton2.png" alt="gamePage" class="btnAnswers">
+        <img src="assets/images/answerbutton2.png" alt="gamePage" class="btnAnswers">
     </div>
     <div class="mb-2 form-answer-button">
-        <button type="button" class="btn btnAnswers" id="btnA1">1</button>
-        <button type="button" class="btn btnAnswers" id="btnA2">2</button>
-        <button type="button" class="btn btnAnswers" id="btnA3">3</button>
+        <button type="button" class="btn btnAnswers" id="btnA1">0</button>
+        <button type="button" class="btn btnAnswers" id="btnA2">1</button>
+        <button type="button" class="btn btnAnswers" id="btnA3">2</button>
+        <button type="button" class="btn btnAnswers" id="btnA4">3</button>
+        <button type="button" class="btn btnAnswers" id="btnA5">4</button>
+        <button type="button" class="btn btnAnswers" id="btnA6">5</button>
+        <button type="button" class="btn btnAnswers" id="btnA7">6</button>
+        <button type="button" class="btn btnAnswers" id="btnA8">7</button>
+        <button type="button" class="btn btnAnswers" id="btnA9">8</button>
+        <button type="button" class="btn btnAnswers" id="btnA10">9</button>
     </div>
     <div class="menuFrame">
         <img src="assets/images/time.png" alt="" class="menu" id="menu1">
@@ -193,7 +209,7 @@
     </div>
     <div class="menuFrame">
         <h2 class="menu" id="fullScore">0</h2>
-        <h2 class="menu" id="lives">1</h2>
+        <h2 class="menu" id="lives">+3</h2>
         <h2 class="menu" id="time">1.00</h2>
     </div>
     <h1 id="display_level_header">LEVEL <span id="display_level_header_count">1</span></h1>
@@ -209,71 +225,80 @@
         <canvas id="canvas"></canvas>
     </div>
 
-    <!--play button click sound-->
-    <audio id="play">
-        <source src="assets/audio/mixkit-unlock-game-notification-253.wav" type="audio/mpeg">
-    </audio>
-
-    <!--game over model-->
-    <!--<div class="model_container">
-        <img src="assets/images/gameoverbg.png" alt="" id="over_bg">
+    <!--try again model---->;
+    <div class="try_again_container">
+        <img src="assets/images/hanging1.png" alt="" class="try_again_bg">
+        <img src="assets/images/ribbon.png" alt="" class="loseImage">
+        <img src="assets/icons/icons8-multiply-60.png" alt="" id="close_try_model">
         <div class="model">
-            <img src="assets/images/gameover.png" alt="" id="gameover">
-            <img src="assets/images/try.png" alt="" id="try">
-            <h1 id="try_text">TRY AGAIN</h1>
-            <img src="assets/icons/icons8-multiply-60.png" alt="" id="close_over_model">
-            <img src="assets/images/ok.png" alt="" id="btnOk">
-            <img src="assets/images/exit.png" alt="" id="close">
+            <h1 class="lose_text">YOU LOSE</h1>
+            <img src="assets/images/result.png" alt="" id="btnReplay">
+            <img src="assets/images/woodenField1.png" alt="" id="woodenFieldsForScore" class="woodenFields">
+            <h1 id="scorePerGame">SCORE : <span>-5</span></h1>
+            <h1 id="lifePerGame">LIVES : <span id="livesforTry"></span></h1>
+            <img src="assets/images/woodenField1.png" alt="" id="woodenFieldsForLives" class="woodenFields">
         </div>
+        <div><img src="assets/images/sad.png" alt="score" class="tomatoInStart"></div>
+    </div>
 
-        &lt;!&ndash;victory&ndash;&gt;
-        <img src="assets/images/menu.png" alt="" class="displayScore">
-        <h1 class="gameOverVictory">VICTORY</h1>
-        <h1 class="high_score_title">TARGET</h1>
-        <h1 class="high_score">25</h1>
-        <h1 class="victory_score_title">SCORE</h1>
-        <h1 class="victory_score">0</h1>
-        <h1 class="spend_time_title">TIME</h1>
-        <h1 class="spend_time">0</h1>
-    </div>-->
+</section>
+
+<section id="model_container">
+    <div>
+        <img src="assets/images/bg5.png" alt="gamePage" class="gameImage">
+        <img src="assets/images/backButton.png" alt="loginPage" class="btnLeftBack" id="backToStart">
+    </div>
+
+    <img src="assets/images/hanging1.png" alt="" class="try_again_bg">
+    <img src="assets/images/ribbon.png" alt="" class="loseImage">
+    <div class="model">
+        <h1 class="lose_text">GAME OVER</h1>
+        <img src="assets/images/result.png" alt="" id="btnNext">
+        <img src="assets/images/woodenField1.png" alt="" id="woodenFieldsForScoreOver" class="woodenFields">
+        <h1 id="fullScorePerGame">SCORE : <span id="fullScoreForFail">0</span></h1>
+        <h1 id="levelPerGame">LEVEL : <span id="levelforFail"></span></h1>
+        <img src="assets/images/woodenField1.png" alt="" id="woodenFieldsForLevels" class="woodenFields">
+        <img src="assets/images/ok.png" alt="" id="btnOk">
+        <img src="assets/images/exit.png" alt="" id="close">
+    </div>
+
+    <div><img src="assets/images/sad.png" alt="score" class="tomatoInStart"></div>
 
     <!--game over sound-->
     <audio id="gameover_audio">
         <source src="assets/audio/mixkit-player-losing-or-failing-2042.wav" type="audio/mpeg">
     </audio>
 
-    <!--win model---->;
-    <!--<div class="win_container">
-        <img src="assets/images/gameoverbg.png" alt="" id="win_bg">
-        <div class="model">
-            <img src="assets/images/output-onlinegiftools%20(1).gif" alt="" id="win">
-            <img src="assets/images/try.png" alt="" id="start">
-            <h1 id="start_text">START AGAIN</h1>
-            <img src="assets/icons/icons8-multiply-60.png" alt="" id="close_win_model">
-            <img src="assets/images/ok.png" alt="" id="btnOkInWin">
-            <img src="assets/images/exit.png" alt="" id="closeInWin">
-        </div>
+</section>
 
-        &lt;!&ndash;win victory&ndash;&gt;
-        <img src="assets/images/congratulations1.png" alt="" id="victory">
-        <img src="assets/images/stand.png" alt="" id="displayScore">
-        <h1 class="gameOverVictory">VICTORY</h1>
-        <h1 class="high_score_title">TARGET</h1>
-        <h1 class="high_score">25</h1>
-        <h1 class="victory_score_title">SCORE</h1>
-        <h1 class="victory_score">0</h1>
-        <h1 class="spend_time_title">TIME</h1>
-        <h1 class="spend_time">0</h1>
-    </div>-->
+<!--win model---->;
+<section class="win_container">
+    <img src="assets/images/gameoverbg.png" alt="" id="win_bg">
+    <div class="model">
+        <img src="assets/images/output-onlinegiftools%20(1).gif" alt="" id="win">
+        <img src="assets/images/try.png" alt="" id="start">
+        <h1 id="start_text">NEXT GAME</h1>
+        <img src="assets/icons/icons8-multiply-60.png" alt="" id="close_win_model">
+        <img src="assets/images/ok.png" alt="" id="btnOkInWin">
+        <img src="assets/images/exit.png" alt="" id="closeInWin">
+    </div>
+
+    <!--win victory-->
+    <img src="assets/images/congratulations1.png" alt="" id="victory">
+    <img src="assets/images/stand.png" alt="" id="displayScore">
+    <h1 class="gameOverVictory">VICTORY</h1>
+    <h1 class="high_score_title">TARGET</h1>
+    <h1 class="high_score">25</h1>
+    <h1 class="victory_score_title">SCORE</h1>
+    <h1 class="victory_score">0</h1>
+    <h1 class="spend_time_title">TIME</h1>
+    <h1 class="spend_time">0</h1>
 
     <!--game win sound-->
     <audio id="gamewin">
         <source src="assets/audio/mixkit-medieval-show-fanfare-announcement-226.wav" type="audio/mpeg">
     </audio>
-
 </section>
-
-<section id="winSection">fgdfh</section>
 
 <section id="successAlertSection">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -352,7 +377,7 @@
         $("#container").fadeOut(1000);
     });
 
-    $(".btnLeftBack,#btnRegister,#btnLogin,#btnSignIn-login,#btnSignIn-register,#btnSignUp-login,#btnSignUp-register,#btnPlay,#btnA1,#btnA2,#btnA3").on('click',function () {
+    $(".btnLeftBack,#btnRegister,#btnLogin,#btnSignIn-login,#btnSignIn-register,#btnSignUp-login,#btnSignUp-register,#btnPlay,#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10,#btnReplay,#close_try_model").on('click',function () {
         var audio = $("#btnAudio")[0];
         audio.play();
     });

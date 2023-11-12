@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 public class Score {
 
     @Id
@@ -23,8 +24,9 @@ public class Score {
     private Player player;
     @Lob
     private String question_link;
-    private double answer;
-    private boolean is_correct;
+    private int answer;
+    private int level;
+    private Boolean is_correct;
     private int score;
     @JsonFormat(pattern = "dd-MM-yyyy HH:MM:ss")
     @Temporal(TemporalType.TIMESTAMP)

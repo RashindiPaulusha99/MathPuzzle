@@ -1,195 +1,3 @@
-/*game start page*/
-.gameStartForm{
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    margin: auto;
-    width: 60%;
-    height: 60%;
-    text-align: center;
-}
-
-/*#gameStartSection{
-    background-image: url("../images/gamestart.jpeg");
-    background-size:cover;
-    background-position:center center;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    margin: auto;
-}*/
-
-.startHeading{
-    color: #dc3545;
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Spicy Rice', serif;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    font-size: 81px;
-}
-
-.levelTitle{
-    color: white;
-    font-size: 50px;
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Spicy Rice', serif;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    position: relative;
-}
-
-.levelCount{
-    position: relative;
-    color: white;
-    font-size: 50px;
-    font-family: 'Montserrat', sans-serif;
-    font-family: 'Spicy Rice', serif;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-#btnPlay{
-    top: -2px;
-}
-
-.startBoardImage{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    width: 572px;
-}
-
-.startBoard{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    width: 293px;
-}
-
-#headerBar{
-    position: absolute;
-    top: -120px;
-    left: 0;
-    right: 0;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 75%;
-    height: 78px;
-}
-
-.btnInStart1{
-    position: absolute;
-    top: 0;
-    width: 96px;
-    height: 72px;
-    left: 110px;
-    filter: drop-shadow(-5px 18px 13px black);
-}
-
-.btnInStart1Icon{
-    position: absolute;
-    top: 2px;
-    width: 60px;
-    height: 59px;
-    left: 127px;
-    filter: drop-shadow(-5px 18px 13px black);
-}
-
-.btnInStart2{
-    position: absolute;
-    top: 0;
-    width: 96px;
-    height: 72px;
-    right: 130px;
-    filter: drop-shadow(-5px 18px 13px black);
-}
-
-.btnInStart2Icon{
-    position: absolute;
-    top: 12px;
-    width: 44px;
-    height: 40px;
-    right: 156px;
-    filter: drop-shadow(-5px 18px 13px black);
-}
-
-.barInStart{
-    position: absolute;
-    top: -35px;
-    width: 150px;
-    height: 133px;
-    filter: drop-shadow(-5px 18px 13px black);
-}
-
-.startSideBoard{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 364px;
-    filter: drop-shadow(-5px 18px 13px black);
-}
-
-#scoreCount{
-    color: white;
-    position: absolute;
-    text-align: center;
-    left: 191px;
-    top: 13px;
-    width: 100px;
-    height: 43px;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-#levelCount{
-    color: white;
-    position: absolute;
-    text-align: center;
-    right: 45px;
-    top: 13px;
-    width: 100px;
-    height: 43px;
-    z-index: 1;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-#levelBoard{
-    position: absolute;
-    top: 139px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 168px;
-}
-
-#woodenLevelBoard{
-   position: absolute;
-    top: -38px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-    width: 385px;
-}
-
-.tomatoInStart{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    filter: drop-shadow(-5px 18px 13px black);
-}
-
-
 /*game page*/
 .gameImage{
     height: 100vh;
@@ -245,7 +53,7 @@
 
 .form-answer-button{
     position: absolute;
-    bottom: 25px;
+    bottom: 40px;
     left: 0;
     right: 0;
     display: flex;
@@ -257,38 +65,110 @@
 }
 
 #btnA1{
+    font-family: cursive;
     color: white;
     border-radius: 100%;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     font-size: 32px;
     font-weight: 700;
 }
 
 #btnA2{
+    font-family: cursive;
     color: white;
     border-radius: 100%;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     font-size: 32px;
     font-weight: 700;
 }
 
 #btnA3{
+    font-family: cursive;
     color: white;
     border-radius: 100%;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#btnA4{
+    font-family: cursive;
+    color: white;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#btnA5{
+    font-family: cursive;
+    color: white;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#btnA6{
+    font-family: cursive;
+    color: white;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#btnA7{
+    font-family: cursive;
+    color: white;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#btnA8{
+    font-family: cursive;
+    color: white;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#btnA9{
+    font-family: cursive;
+    color: white;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#btnA10{
+    font-family: cursive;
+    color: white;
+    border-radius: 100%;
+    width: 70px;
+    height: 70px;
     font-size: 32px;
     font-weight: 700;
 }
 
 .btnAnswers{
-    /*background-color: white;*/
     border: 1px solid transparent;
     filter: drop-shadow(-5px 18px 13px black);
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
 }
 
 /********************************/

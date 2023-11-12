@@ -3,6 +3,7 @@ package com.uob.mathpuzzle.service.impl;
 import com.uob.mathpuzzle.entity.Player;
 import com.uob.mathpuzzle.exception.CustomOauthException;
 import com.uob.mathpuzzle.repository.GameRepository;
+import com.uob.mathpuzzle.repository.PlayerRepository;
 import com.uob.mathpuzzle.service.Oauth2UserService;
 import com.uob.mathpuzzle.util.EmailValidator;
 import lombok.extern.log4j.Log4j2;
@@ -31,12 +32,12 @@ import static com.uob.mathpuzzle.constant.OAuth2Constant.CLIENT_ID;
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class Oauth2UserServiceImpl implements Oauth2UserService, UserDetailsService {
 
-    private final GameRepository gameRepository;
+    private final PlayerRepository playerRepository;
     private final EmailValidator emailValidator;
 
     @Autowired
-    public Oauth2UserServiceImpl(GameRepository gameRepository, EmailValidator emailValidator) {
-        this.gameRepository = gameRepository;
+    public Oauth2UserServiceImpl(PlayerRepository playerRepository, EmailValidator emailValidator) {
+        this.playerRepository = playerRepository;
         this.emailValidator = emailValidator;
     }
 
@@ -58,7 +59,7 @@ public class Oauth2UserServiceImpl implements Oauth2UserService, UserDetailsServ
             // check client credentials
             if(clientId.equals(CLIENT_ID)) {
                 //if admin
-                Optional<Player> byEmail = gameRepository.findByEmail(s);
+                Optional<Player> byEmail = playerRepository.findByEmail(s);
 
                 if(!byEmail.isPresent()) throw new CustomOauthException("Invalid Credentials");
 

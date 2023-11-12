@@ -149,7 +149,7 @@ $("#btnSignIn-login").click(function () {
 
 function getLevelAndScore() {
     $.ajax({
-        url: "http://localhost:8080/v1/game/get/start/ScoreLevel",
+        url: "http://localhost:8080/v1/game/get/start/scoreLevel",
         method: "GET",
         crossDomain: true,
         contentType: "application/json",
