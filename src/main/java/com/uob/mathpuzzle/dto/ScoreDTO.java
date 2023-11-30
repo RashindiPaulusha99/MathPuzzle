@@ -19,6 +19,7 @@ public class ScoreDTO {
     private int level;
     private Boolean is_correct;
     private int score;
-
+    private double timer;
+    private int reward;
 
 }

@@ -95,6 +95,8 @@ public class GameServiceImpl implements GameService{
                 score.setIs_correct(scoreDTO.getIs_correct());
                 score.setLevel(scoreDTO.getLevel());
                 score.setScore(scoreDTO.getScore());
+                score.setTimer(scoreDTO.getTimer());
+                score.setReward(scoreDTO.getReward());
                 score.setUpdatedTimestamp(new Date());
 
                 return modelMapper.map(gameRepository.save(score),ScoreDTO.class);
@@ -103,6 +105,8 @@ public class GameServiceImpl implements GameService{
 
                 byId.get().setIs_correct(scoreDTO.getIs_correct());
                 byId.get().setScore(scoreDTO.getScore());
+                byId.get().setTimer(scoreDTO.getTimer());
+                byId.get().setReward(scoreDTO.getReward());
                 byId.get().setUpdatedTimestamp(new Date());
 
                 return modelMapper.map(gameRepository.save(byId.get()),ScoreDTO.class);
