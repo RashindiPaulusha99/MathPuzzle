@@ -153,19 +153,22 @@
     position:relative;
     top: -28px;
     display:inline-block;
+    font-family: 'Rocher';
+    font-palette: 9;
 }
 
 .button a{
     color:white;
-    font-family:Helvetica, sans-serif;
     font-weight:bold;
-    font-size:32px;
+    font-size:27px;
     text-align: center;
     text-decoration:none;
     background-color:#FFA12B;
     display:block;
     position:relative;
     padding:20px 40px;
+    font-family: 'Rocher';
+    font-palette: 9;
 
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     text-shadow: 0px 1px 0px #000;
@@ -202,6 +205,10 @@
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+}
+
+.button:hover{
+    color: #dad55e;
 }
 
 /*loader*/

@@ -37,12 +37,12 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
     if (chances != 0){
 
         if (buttonText == correctAnswer){
-            $('.win_container').css('transform', 'scale(1)');
-            $('.win_container').css('display', 'block');
+            $('#win_container').css('display', 'block');
 
             chances = chances - 1;
 
             var scoreWinDetail = {
+                "id":gameId,
                 "question_link":question,
                 "answer":correctAnswer,
                 "level":parseInt($("#display_level_header_count").text()),
@@ -53,6 +53,9 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
             saveScoreLevel(scoreWinDetail);
             $("#lives").text(chances);
             $("#livesforTry").text("+ "+chances);
+            $(".fullScoreForFail").text(score);
+            $("#levelforFail").text(parseInt($("#display_level_header_count").text()));
+            $("#victoryLevel").text(parseInt($("#display_level_header_count").text()));
 
         }else {
             $('.try_again_container').css('transform', 'scale(1)');
@@ -73,6 +76,9 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
             saveScoreLevel(scoreDetail);
             $("#lives").text(chances);
             $("#livesforTry").text("+ "+chances);
+            $("#fullScoreForFail").text(score);
+            $("#levelforFail").text(parseInt($("#display_level_header_count").text()));
+            $("#victoryLevel").text(parseInt($("#display_level_header_count").text()));
         }
     }else {
         $('#model_container').css('display', 'block');
@@ -92,6 +98,7 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
         $("#livesforTry").text("+ "+chances);
         $("#fullScoreForFail").text(score);
         $("#levelforFail").text(parseInt($("#display_level_header_count").text()));
+        $("#victoryLevel").text(parseInt($("#display_level_header_count").text()));
 
         question = null;
         correctAnswer = 0;
@@ -99,7 +106,6 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
         chances = 3;
         gameId = null;
     }
-
 
 });
 
@@ -110,6 +116,9 @@ function saveScoreLevel(scoreDetail){
         method: "POST",
         crossDomain: true,
         contentType: "application/json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("authToken")
+        },
         data: JSON.stringify(scoreDetail),
         success: function (response) {
             console.log(response)
@@ -126,14 +135,6 @@ function saveScoreLevel(scoreDetail){
     });
 }
 
-$("#close_win_model").on('click',function () {
-    $('.win_container').css('transform','scale(0)');
-    $(".win_container").css('display', 'none');
-    $("#gameStartSection").css('display', 'block');
-    $("#playSection").css('display', 'none');
-    $(".spend_time").text(0);
-});
-
 $("#close_over_model").on('click',function () {
     $("#model_container").css('display', 'none');
     $("#playSection").css('display', 'block');
@@ -141,15 +142,15 @@ $("#close_over_model").on('click',function () {
 });
 
 $("#btnOk").on('click',function () {
-    $('.model_container').css('transform','scale(0)');
-    $(".model_container").css('display', 'none');
+    $('#model_container').css('transform','scale(0)');
+    $("#model_container").css('display', 'none');
     $(".spend_time").text(0);
 });
 
 $("#close").on('click',function () {
     $(".spend_time").text(0);
-    $('.model_container').css('transform', 'scale(0)');
-    $(".model_container").css('display', 'none');
+    $('#model_container').css('transform', 'scale(0)');
+    $("#model_container").css('display', 'none');
 });
 
 $("#btnOkInWin").on('click',function () {
@@ -178,5 +179,25 @@ $("#btnReplay").on('click',function () {
     $('.try_again_container').css('transform', 'scale(0)');
     $(".try_again_container").css('display', 'none');
     $("#playSection").css('display', 'block');
+});
+
+$("#btnNextLevel").on('click',function () {
+    $(".spend_time").text(0);
+    $("#victoryLevel").text(0);
+    $(".fullScoreForFail").text(0);
+    $("#win_container").css('display', 'none');
+    $("#gameStartSection").css('display', 'block');
+    $("#playSection").css('display', 'none');
+    getLevelAndScore();
+});
+
+$("#btnNext").on('click',function () {
+    $(".spend_time").text(0);
+    $("#victoryLevel").text(0);
+    $(".fullScoreForFail").text(0);
+    $("#win_container").css('display', 'none');
+    $("#gameStartSection").css('display', 'block');
+    $(".try_again_container").css('display', 'none');
+    $("#model_container").css('display', 'none');
 });
 

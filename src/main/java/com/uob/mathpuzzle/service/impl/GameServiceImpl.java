@@ -23,7 +23,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Date;
 import java.util.Optional;
 
-
 @Log4j2
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)

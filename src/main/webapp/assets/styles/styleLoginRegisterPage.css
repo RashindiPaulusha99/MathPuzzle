@@ -50,6 +50,12 @@
     position: relative;
     top: 30px;
     font-size: 40px;
+    font-family: 'Rocher';
+    font-palette: 9;
+}
+
+#headingRegister{
+    top: 40px;
 }
 
 .btnLeftBack{
@@ -67,6 +73,18 @@
 .btnLeftBack:hover{
     width:80px ;
 
+}
+
+#forEmail{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    filter: drop-shadow(0px 8px 10px black);
+    top: 1%;
+    width: 321px;
+    height: 165px;
 }
 
 .form-login{
@@ -101,11 +119,28 @@
 }
 
 .form-button{
+    z-index: 5;
     display: flex;
     justify-content: space-between;
 }
 
+#email-login{
+    position: absolute;
+    z-index: 5;
+    width: 245px;
+    height: 33px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 1%;
+    margin: auto;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
 .email-input{
+    font-family: 'Rocher';
+    font-palette: 9;
     color: black;
     /*filter: drop-shadow(-1px 18px 13px black);*/
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
@@ -113,34 +148,78 @@
 
 .email-label{
     color: white;
+    font-family: 'Rocher';
+    font-palette: 9;
     font-weight: 500;
 }
 
+#forPassword{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 39%;
+    width: 321px;
+    height: 165px;
+    filter: drop-shadow(0px 8px 10px black);
+}
+
+#password-login{
+    position: absolute;
+    z-index: 5;
+    width: 245px;
+    height: 33px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 39%;
+    margin: auto;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
 .password-input{
+    font-family: 'Rocher';
+    font-palette: 9;
     color: black;
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
     /*filter: drop-shadow(-1px 18px 13px black);*/
 }
 
 .password-label{
+    font-family: 'Rocher';
+    font-palette: 9;
     color: white;
     font-weight: 500;
 }
 
 #btnSignIn-login{
     width: 40%;
-    border: 3px solid white;
-    color: white;
-    font-weight: 700;
+    font-family: 'Rocher';
+    font-palette: 9;
 }
 
+#forLoginInLogin{
+    width: 39%;
+    height: 30%;
+    top: 70%;
+    left: -52%;
+    z-index: -1;
+}
+
+#forRegisterInLogin{
+    width: 39%;
+    height: 30%;
+    top: 70%;
+    left: 52%;
+    z-index: -1;
+}
 
 #btnSignUp-login{
     width: 40%;
-    border: 3px solid white;
-    color: white;
-    font-weight: 700;
-    filter: drop-shadow(-1px 18px 13px black);
+    font-family: 'Rocher';
+    font-palette: 9;
 }
 
 /*register page*/
@@ -157,27 +236,123 @@
 }*/
 
 #btnSignIn-register{
+    font-family: 'Rocher';
+    font-palette: 9;
     width: 40%;
-    border: 3px solid white;
-    color: white;
-    font-weight: 700;
-    filter: drop-shadow(-1px 18px 13px black);
 }
 
 #btnSignUp-register{
+    font-family: 'Rocher';
+    font-palette: 9;
     width: 40%;
-    border: 3px solid white;
-    color: white;
-    font-weight: 700;
-    filter: drop-shadow(-1px 18px 13px black);
 }
 
 .username-input{
+    font-family: 'Rocher';
+    font-palette: 9;
     color: black;
     filter: drop-shadow(-1px 18px 13px black);
 }
 
 .username-label{
+    font-family: 'Rocher';
+    font-palette: 9;
     color: white;
     font-weight: 500;
+    position: relative;
+    top: -50%;
+}
+
+#forUsername{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    filter: drop-shadow(0px 8px 10px black);
+    top: -15%;
+    width: 321px;
+    height: 165px;
+}
+
+#forEmailInRegister{
+    top: 18%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    filter: drop-shadow(0px 8px 10px black);
+    width: 321px;
+    height: 165px;
+}
+
+#forPasswordInRegister{
+    top: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    filter: drop-shadow(0px 8px 10px black);
+    width: 321px;
+    height: 165px;
+}
+
+#username-register{
+    position: absolute;
+    z-index: 6;
+    width: 245px;
+    height: 33px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: -16%;
+    margin: auto;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+#forLoginInRegister{
+    width: 39%;
+    height: 30%;
+    top: 74%;
+    left: -52%;
+    z-index: -1;
+}
+
+#forRegisterInRegister{
+    width: 39%;
+    height: 30%;
+    top: 74%;
+    left: 52%;
+    z-index: -1;
+}
+
+#email-register{
+    position: absolute;
+    z-index: 6;
+    width: 245px;
+    height: 33px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 18%;
+    margin: auto;
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+
+#password-register{
+    position: absolute;
+    z-index: 6;
+    width: 245px;
+    height: 33px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 49%;
+    margin: auto;
+    background-color: transparent;
+    border: 1px solid transparent;
 }

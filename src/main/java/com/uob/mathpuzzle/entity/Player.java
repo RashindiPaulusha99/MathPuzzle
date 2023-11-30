@@ -26,7 +26,7 @@ public class Player {
     @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Score> scores = new ArrayList<>();
 
-    @Override
+    /*@Override
     public String toString() {
         return "Player{" +
                 "id=" + id +
@@ -34,5 +34,5 @@ public class Player {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 '}';
-    }
+    }*/
 }

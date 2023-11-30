@@ -28,7 +28,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Spicy+Rice&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Lobster+Two:wght@400;700&display=swap" rel="stylesheet">
 
-
+    <!-- icons -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 
@@ -86,14 +86,18 @@
             </div>
             <div class="mb-2 form-email">
                 <label for="email-login" class="form-label email-label">EMAIL</label>
+                <img src="assets/images/woodenField1.png" alt="" id="forEmail" class="woodenFields">
                 <input type="email" class="form-control email-input" id="email-login">
             </div>
             <div class="mb-4 form-email">
                 <label for="password-login" class="form-label password-label">PASSWORD</label>
+                <img src="assets/images/woodenField1.png" alt="" id="forPassword" class="woodenFields">
                 <input type="password" class="form-control password-input" id="password-login">
             </div>
             <div class="mb-2 form-button">
+                <img src="assets/images/woodenField1.png" alt="" id="forLoginInLogin" class="woodenFields">
                 <button type="button" class="btn" id="btnSignIn-login">SIGN IN</button>
+                <img src="assets/images/woodenField1.png" alt="" id="forRegisterInLogin" class="woodenFields">
                 <button type="button" class="btn" id="btnSignUp-login">SIGN UP</button>
             </div>
         </div>
@@ -107,22 +111,27 @@
     </div>
     <div class="form-login">
         <div>
-            <h1 class="mb-5 heading">REGISTER</h1>
+            <h1 class="mb-5 heading" id="headingRegister">REGISTER</h1>
         </div>
         <div class="mb-2 form-email">
             <label for="username-register" class="form-label username-label">USERNAME</label>
+            <img src="assets/images/woodenField1.png" alt="" id="forUsername" class="woodenFields">
             <input type="text" class="form-control username-input" id="username-register">
         </div>
         <div class="mb-2 form-email">
             <label for="email-register" class="form-label email-label">EMAIL</label>
+            <img src="assets/images/woodenField1.png" alt="" id="forEmailInRegister" class="woodenFields">
             <input type="email" class="form-control email-input" id="email-register">
         </div>
         <div class="mb-4 form-email">
             <label for="password-register" class="form-label password-label">PASSWORD</label>
+            <img src="assets/images/woodenField1.png" alt="" id="forPasswordInRegister" class="woodenFields">
             <input type="password" class="form-control password-input" id="password-register">
         </div>
         <div class="mb-2 form-button">
+            <img src="assets/images/woodenField1.png" alt="" id="forLoginInRegister" class="woodenFields">
             <button type="button" class="btn" id="btnSignIn-register">SIGN IN</button>
+            <img src="assets/images/woodenField1.png" alt="" id="forRegisterInRegister" class="woodenFields">
             <button type="button" class="btn" id="btnSignUp-register">SIGN UP</button>
         </div>
     </div>
@@ -255,11 +264,9 @@
         <h1 class="lose_text">GAME OVER</h1>
         <img src="assets/images/result.png" alt="" id="btnNext">
         <img src="assets/images/woodenField1.png" alt="" id="woodenFieldsForScoreOver" class="woodenFields">
-        <h1 id="fullScorePerGame">SCORE : <span id="fullScoreForFail">0</span></h1>
+        <h1 id="fullScorePerGame">SCORE : <span class="fullScoreForFail">0</span></h1>
         <h1 id="levelPerGame">LEVEL : <span id="levelforFail"></span></h1>
         <img src="assets/images/woodenField1.png" alt="" id="woodenFieldsForLevels" class="woodenFields">
-        <img src="assets/images/ok.png" alt="" id="btnOk">
-        <img src="assets/images/exit.png" alt="" id="close">
     </div>
 
     <div><img src="assets/images/sad.png" alt="score" class="tomatoInStart"></div>
@@ -272,27 +279,29 @@
 </section>
 
 <!--win model---->;
-<section class="win_container">
-    <img src="assets/images/gameoverbg.png" alt="" id="win_bg">
-    <div class="model">
-        <img src="assets/images/output-onlinegiftools%20(1).gif" alt="" id="win">
-        <img src="assets/images/try.png" alt="" id="start">
-        <h1 id="start_text">NEXT GAME</h1>
-        <img src="assets/icons/icons8-multiply-60.png" alt="" id="close_win_model">
-        <img src="assets/images/ok.png" alt="" id="btnOkInWin">
-        <img src="assets/images/exit.png" alt="" id="closeInWin">
+<section id="win_container">
+    <div>
+        <img src="assets/images/bg5.png" alt="gamePage" class="gameImage">
+        <img src="assets/images/backButton.png" alt="loginPage" class="btnLeftBack" id="backToStartFromWin">
     </div>
 
-    <!--win victory-->
-    <img src="assets/images/congratulations1.png" alt="" id="victory">
-    <img src="assets/images/stand.png" alt="" id="displayScore">
-    <h1 class="gameOverVictory">VICTORY</h1>
-    <h1 class="high_score_title">TARGET</h1>
-    <h1 class="high_score">25</h1>
-    <h1 class="victory_score_title">SCORE</h1>
-    <h1 class="victory_score">0</h1>
-    <h1 class="spend_time_title">TIME</h1>
-    <h1 class="spend_time">0</h1>
+    <img src="assets/images/hanging1.png" alt="" class="try_again_bg">
+    <img src="assets/images/ribbon.png" alt="" class="loseImage">
+    <div class="model">
+        <h1 class="lose_text">YOU WIN</h1>
+        <img src="assets/images/sideboard.png" alt="" id="levelUp">
+        <img src="assets/images/victory-9006300-7388017.webp" alt="" id="victoryStar">
+        <h1 id="victoryLevel">1</h1>
+        <h1 id="victoryLevelText">LEVEL</h1>
+        <img src="assets/images/congracts.png" alt="" id="woodenFieldsForTarget" class="woodenFields">
+        <h1 id="target">TARGET : <span>30</span></h1>
+        <h1 id="fullScorePerGameInWin">SCORE : <span class="fullScoreForFail">0</span></h1>
+        <img src="assets/images/woodenField1.png" alt="" id="woodenFieldsForTime" class="woodenFields">
+        <button id="btnNextLevel">NEXT LEVEL</button>
+        <h1 id="timePerGame">TIME : <!--<span id="levelforFail"></span>--></h1>
+    </div>
+
+    <div><img src="assets/images/welcomeTomato.png" alt="score" class="tomatoInStart"></div>
 
     <!--game win sound-->
     <audio id="gamewin">
@@ -377,7 +386,7 @@
         $("#container").fadeOut(1000);
     });
 
-    $(".btnLeftBack,#btnRegister,#btnLogin,#btnSignIn-login,#btnSignIn-register,#btnSignUp-login,#btnSignUp-register,#btnPlay,#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10,#btnReplay,#close_try_model").on('click',function () {
+    $(".btnLeftBack,#btnRegister,#btnLogin,#btnSignIn-login,#btnSignIn-register,#btnSignUp-login,#btnSignUp-register,#btnPlay,#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10,#btnReplay,#close_try_model,#btnNextLevel").on('click',function () {
         var audio = $("#btnAudio")[0];
         audio.play();
     });

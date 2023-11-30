@@ -19,6 +19,6 @@ public class PlayerDTO {
     private String username;
     private String email;
     private String password;
-    private List<Score> scores = new ArrayList<>();
+    //private List<Score> scores = new ArrayList<>();
 
 }

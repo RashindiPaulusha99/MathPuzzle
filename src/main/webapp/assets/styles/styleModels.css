@@ -146,6 +146,125 @@
     height: 162px;
 }
 
+#woodenFieldsForTarget{
+    top: -16%;
+    width: 234px;
+    height: 240px;
+    filter: drop-shadow(0px 8px 10px black);
+}
+
+#woodenFieldsForScoreWin{
+    top: -7%;
+}
+
+#woodenFieldsForTime{
+    top: 12%;
+}
+
+#btnNextLevel{
+    position: absolute;
+    top: 44%;
+    left: 0;
+    right: 0;
+    font-family: 'Rocher';
+    font-palette: 9;
+    text-align: center;
+    font-size: 29px;
+    z-index: 5;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid transparent;
+    width: 25%;
+    height: 23%;
+    margin: auto;
+}
+
+#fullScorePerGameInWin{
+    position: absolute;
+    z-index: 7;
+    text-align: center;
+    color: white;
+    top: 72%;
+    left: 5%;
+    font-size: 21px;
+    font-family: 'Rocher';
+    font-palette: 9;
+}
+
+#target{
+    position: absolute;
+    z-index: 7;
+    text-align: center;
+    color: white;
+    top: 65%;
+    left: 5%;
+    font-size: 21px;
+    font-family: 'Rocher';
+    font-palette: 9;
+}
+
+#timePerGame{
+    position: absolute;
+    z-index: 7;
+    text-align: center;
+    color: white;
+    top: 80%;
+    left: 5%;
+    font-size: 21px;
+    font-family: 'Rocher';
+    font-palette: 9;
+}
+
+#levelUp{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: 25%;
+    height: 48%;
+    filter: drop-shadow(0px 8px 10px black);
+    cursor: pointer;
+    z-index: 7;
+}
+
+#victoryLevel{
+    position: absolute;
+    left: 11%;
+    bottom: 58%;
+    margin: auto;
+    filter: drop-shadow(0px 8px 10px black);
+    cursor: pointer;
+    z-index: 7;
+    font-size: 25px;
+    font-family: 'Rocher';
+    font-palette: 9;
+}
+
+#victoryLevelText{
+    position: absolute;
+    left: 9.5%;
+    bottom: 53%;
+    margin: auto;
+    filter: drop-shadow(0px 8px 10px black);
+    cursor: pointer;
+    z-index: 7;
+    font-size: 23px;
+    font-family: 'Rocher';
+    font-palette: 9;
+}
+
+#victoryStar{
+    position: absolute;
+    left: 26px;
+    bottom: 33%;
+    margin: auto;
+    width: 20%;
+    height: 40%;
+    filter: drop-shadow(0px 8px 10px black);
+    cursor: pointer;
+    z-index: 7;
+}
+
 /*--------game over styles--------*/
 
 /*.model_container{
@@ -513,6 +632,7 @@
     z-index: 5;
     width: 25%;
     height: 23%;
+    filter: drop-shadow(0px 8px 10px black);
 }
 
 #woodenFieldsForScore{
