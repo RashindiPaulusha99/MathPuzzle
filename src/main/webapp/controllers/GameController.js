@@ -4,6 +4,14 @@ var correctAnswer = 0;
 var score = 30;
 var chances = 3;
 var gameId = null;
+var timerId;
+var time=0;
+
+function setTime() {
+    time++;
+    $('#time').text(time);
+    timerId = setTimeout(setTime, 1000);
+}
 
 $("#btnPlay").on('click', function() {
 
@@ -19,6 +27,8 @@ $("#btnPlay").on('click', function() {
                 $("#tomatoGame").attr("src", response.body.question);
                 question = response.body.question;
                 correctAnswer = response.body.solution;
+
+                setTime();
 
             }else{
 
@@ -58,6 +68,8 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
             $("#levelforFail").text(parseInt($("#display_level_header_count").text()));
             $("#victoryLevel").text(parseInt($("#display_level_header_count").text()));
             $("#rewardPerGameForWin").text(parseInt($("#display_level_header_count").text()));
+            $("#time").text(time+"s");
+            $("#timePerGameForWin").text(time+"s");
 
         }else {
             $('.try_again_container').css('transform', 'scale(1)');
@@ -83,6 +95,8 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
             $("#levelforFail").text(parseInt($("#display_level_header_count").text()));
             $("#victoryLevel").text(parseInt($("#display_level_header_count").text()));
             $("#rewardPerGameForWin").text(0);
+            $("#time").text(0+"s");
+            $("#timePerGameForWin").text(0+"s");
 
         }
     }else {
@@ -106,6 +120,8 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
         $("#levelforFail").text(parseInt($("#display_level_header_count").text()));
         $("#victoryLevel").text(parseInt($("#display_level_header_count").text()));
         $("#rewardPerGameForWin").text(0);
+        $("#time").text(0+"s");
+        $("#timePerGameForWin").text(0+"s");
 
         question = null;
         correctAnswer = 0;
@@ -134,6 +150,8 @@ function saveScoreLevel(scoreDetail){
                 console.log(response)
                 gameId = response.body.id;
 
+                clearTimeout(timerId);
+
             }
         },
         error: function (ob, statusText, error) {
@@ -143,53 +161,70 @@ function saveScoreLevel(scoreDetail){
 }
 
 $("#close_over_model").on('click',function () {
+    clearTimeout(timerId);
     $("#model_container").css('display', 'none');
     $("#playSection").css('display', 'block');
-    $(".spend_time").text(0);
+    $("#time").text(0);
+    $("#timePerGameForWin").text(0);
 });
 
 $("#btnOk").on('click',function () {
+    clearTimeout(timerId);
     $('#model_container').css('transform','scale(0)');
     $("#model_container").css('display', 'none');
-    $(".spend_time").text(0);
+    $("#time").text(0);
+    $("#timePerGameForWin").text(0);
 });
 
 $("#close").on('click',function () {
-    $(".spend_time").text(0);
+    clearTimeout(timerId);
+    $("#time").text(0);
     $('#model_container').css('transform', 'scale(0)');
     $("#model_container").css('display', 'none');
+    $("#timePerGameForWin").text(0);
 });
 
 $("#btnOkInWin").on('click',function () {
+    clearTimeout(timerId);
     $('.win_container').css('transform', 'scale(0)');
     $(".win_container").css('display', 'none');
     $("#gameStartSection").css('display', 'block');
     $("#playSection").css('display', 'none');
     $("").css('display', 'none');
-    $(".spend_time").text(0);
+    $("#time").text(0);
+    $("#timePerGameForWin").text(0);
 });
 
 $("#closeInWin").on('click',function () {
-    $(".spend_time").text(0);
+    clearTimeout(timerId);
+    $("#time").text(0);
+    $("#timePerGameForWin").text(0);
     $('.win_container').css('transform', 'scale(0)');
     $(".win_container").css('display', 'none');
 });
 
 $("#close_try_model").on('click',function () {
-    $(".spend_time").text(0);
+    clearTimeout(timerId);
+    $("#time").text(0);
+    $("#timePerGameForWin").text(0);
     $('.try_again_container').css('transform', 'scale(0)');
     $(".try_again_container").css('display', 'none');
 });
 
 $("#btnReplay").on('click',function () {
-    $(".spend_time").text(0);
+    clearTimeout(timerId);
+    setTime();
+    $("#time").text(0);
+    $("#timePerGameForWin").text(0);
     $('.try_again_container').css('transform', 'scale(0)');
     $(".try_again_container").css('display', 'none');
     $("#playSection").css('display', 'block');
 });
 
 $("#btnNextLevel").on('click',function () {
-    $(".spend_time").text(0);
+    clearTimeout(timerId);
+    $("#time").text(0);
+    $("#timePerGameForWin").text(0);
     $("#victoryLevel").text(0);
     $(".fullScoreForFail").text(0);
     $("#win_container").css('display', 'none');
@@ -199,7 +234,9 @@ $("#btnNextLevel").on('click',function () {
 });
 
 $("#btnNext").on('click',function () {
-    $(".spend_time").text(0);
+    clearTimeout(timerId);
+    $("#time").text(0);
+    $("#timePerGameForWin").text(0);
     $("#victoryLevel").text(0);
     $(".fullScoreForFail").text(0);
     $("#win_container").css('display', 'none');
