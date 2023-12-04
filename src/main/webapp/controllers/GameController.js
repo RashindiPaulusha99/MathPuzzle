@@ -5,6 +5,30 @@ var score = 30;
 var chances = 3;
 var gameId = null;
 
+loadLeaderboard();
+
+function loadLeaderboard(){
+    $.ajax({
+        url: "http://localhost:8080/v1/game/get/leaderboard",
+        method: "GET",
+        crossDomain: true,
+        contentType: "application/json",
+        success: function (response) {
+            console.log(response)
+            if (response.success == true) {
+
+
+
+            }else{
+
+            }
+        },
+        error: function (ob, statusText, error) {
+            console.log(ob.responseJSON.message)
+        }
+    });
+}
+
 $("#btnPlay").on('click', function() {
 
     $.ajax({
@@ -47,7 +71,8 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
                 "answer":correctAnswer,
                 "level":parseInt($("#display_level_header_count").text()),
                 "is_correct":true,
-                "score":score
+                "score":score,
+                "reward":parseInt($("#display_level_header_count").text())
             }
 
             saveScoreLevel(scoreWinDetail);
@@ -56,6 +81,7 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
             $(".fullScoreForFail").text(score);
             $("#levelforFail").text(parseInt($("#display_level_header_count").text()));
             $("#victoryLevel").text(parseInt($("#display_level_header_count").text()));
+            $("#rewardPerGameForWin").text(parseInt($("#display_level_header_count").text()));
 
         }else {
             $('.try_again_container').css('transform', 'scale(1)');
@@ -70,7 +96,8 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
                 "answer":correctAnswer,
                 "level":parseInt($("#display_level_header_count").text()),
                 "is_correct":false,
-                "score":score
+                "score":score,
+                "reward":0
             }
 
             saveScoreLevel(scoreDetail);
@@ -79,6 +106,8 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
             $("#fullScoreForFail").text(score);
             $("#levelforFail").text(parseInt($("#display_level_header_count").text()));
             $("#victoryLevel").text(parseInt($("#display_level_header_count").text()));
+            $("#rewardPerGameForWin").text(0);
+
         }
     }else {
         $('#model_container').css('display', 'block');
@@ -90,7 +119,8 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
             "answer":correctAnswer,
             "level":parseInt($("#display_level_header_count").text()),
             "is_correct":false,
-            "score":score
+            "score":score,
+            "reward":0
         }
 
         saveScoreLevel(scoreFailDetail);
@@ -99,6 +129,7 @@ $("#btnA1,#btnA2,#btnA3,#btnA4,#btnA5,#btnA6,#btnA7,#btnA8,#btnA9,#btnA10").on('
         $("#fullScoreForFail").text(score);
         $("#levelforFail").text(parseInt($("#display_level_header_count").text()));
         $("#victoryLevel").text(parseInt($("#display_level_header_count").text()));
+        $("#rewardPerGameForWin").text(0);
 
         question = null;
         correctAnswer = 0;
@@ -125,7 +156,7 @@ function saveScoreLevel(scoreDetail){
             if (response.success == true) {
 
                 console.log(response)
-                gameId = response.data.id;
+                gameId = response.body.id;
 
             }
         },

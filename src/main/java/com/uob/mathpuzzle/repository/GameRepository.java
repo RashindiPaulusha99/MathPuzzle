@@ -15,6 +15,9 @@ public interface GameRepository extends JpaRepository<Score, Long> {
     @Query(value = "SELECT SUM(score) FROM score WHERE player_id=:player_id",nativeQuery = true)
     Integer findByScores(@Param("player_id") Long player_id);
 
+    @Query(value = "SELECT SUM(reward) FROM score WHERE player_id=:player_id",nativeQuery = true)
+    Integer findByRewards(@Param("player_id") Long player_id);
+
     @Query(value = "SELECT * FROM score WHERE player_id=:player_id",nativeQuery = true)
     Score findByPlayer(@Param("player_id") Long player_id);
 

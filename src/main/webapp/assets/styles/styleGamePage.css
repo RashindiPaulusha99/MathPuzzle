@@ -61,7 +61,7 @@
     flex-direction: row;
     width: 50%;
     margin: auto;
-    z-index: 1;
+    /*z-index: 1;*/
 }
 
 #btnA1{
@@ -284,6 +284,11 @@
     bottom: 162px;
 }
 
+#menu4{
+    position: relative;
+    bottom: 256px;
+}
+
 #star{
     width: 80px;
     height: 80px;
@@ -308,6 +313,14 @@
     left: 34px;
 }
 
+#reward{
+    width: 62px;
+    height: 62px;
+    position: absolute;
+    top: 244px;
+    left: 38px;
+}
+
 #lives{
     position: absolute;
     top: 174px;
@@ -320,16 +333,26 @@
     width: 62px;
     height: 62px;
     position: absolute;
-    top: 244px;
+    top: 325px;
     left: 38px;
+}
+
+#rewardCountPerLevel{
+    position: absolute;
+    top: 256px;
+    left: 38px;
+    color: white;
+    text-align: center;
+    height: 0;
 }
 
 #time{
     position: absolute;
-    top: 254px;
+    top: 334px;
     left: 38px;
     color: white;
     text-align: center;
+    height: 0;
 }
 
 #display_level_header{

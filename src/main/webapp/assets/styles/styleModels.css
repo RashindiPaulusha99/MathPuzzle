@@ -184,7 +184,7 @@
     z-index: 7;
     text-align: center;
     color: white;
-    top: 72%;
+    top: 69%;
     left: 5%;
     font-size: 21px;
     font-family: 'Rocher';
@@ -196,7 +196,19 @@
     z-index: 7;
     text-align: center;
     color: white;
-    top: 65%;
+    top: 63%;
+    left: 5%;
+    font-size: 21px;
+    font-family: 'Rocher';
+    font-palette: 9;
+}
+
+#rewardPerGame{
+    position: absolute;
+    z-index: 7;
+    text-align: center;
+    color: white;
+    top: 75%;
     left: 5%;
     font-size: 21px;
     font-family: 'Rocher';
@@ -208,7 +220,7 @@
     z-index: 7;
     text-align: center;
     color: white;
-    top: 80%;
+    top: 81%;
     left: 5%;
     font-size: 21px;
     font-family: 'Rocher';

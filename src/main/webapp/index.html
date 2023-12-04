@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Math Puzzle With tomato API</title>
 
+<!--    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">-->
+<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
     <!--styles-->
     <link rel="stylesheet" href="assets/styles/styleWelcomePage.css">
     <link rel="stylesheet" href="assets/styles/styleLoginRegisterPage.css">
@@ -138,7 +143,7 @@
 </section>
 
 <section id="gameStartSection">
-    <div >
+    <div>
         <img src="assets/images/bg5.png" alt="gameStartPage" class="gameImage">
         <img src="assets/images/backButton.png" alt="loginPage" class="btnLeftBack">
     </div>
@@ -165,13 +170,36 @@
             <div>
                 <img src="assets/images/woodenField.png" alt="score" class="barInStart">
                 <img src="assets/images/woodenButton.png" alt="score" class="btnInStart2">
-                <img src="assets/images/level1.webp" alt="score" class="btnInStart2Icon">
-                <div id="levelCount"><h3 id="fullLevelCount"></h3></div>
+                <img src="assets/images/reward.png" alt="score" class="btnInStart2Icon">
+                <div id="levelCount"><h3 id="fullRewardCount"></h3></div>
             </div>
 
         </div>
     </div>
-    <div><img src="assets/images/frame6.png" alt="score" class="startSideBoard"></div>
+    <div>
+        <div id="leaderboardText">
+            <img id="leaderboardImage" src="assets/images/ribbon.png">
+            <h3 id="leaderboardH1">LEARDERBOARD</h3>
+        </div>
+        <div>
+            <img id="leaderboardCoverImage" src="assets/images/sideboard.png" alt="">
+        </div>
+        <div id="tableDiv" class="table-responsive">
+            <table id="dtDynamicVerticalScrollExample" class="" cellspacing="5" width="100%">
+                <thead>
+                    <tr>
+                        <th scope="col" class="th-sm">Rank</th>
+                        <th scope="col" class="th-sm">Name</th>
+                        <th scope="col" class="th-sm">Score</th>
+                        <th scope="col" class="th-sm">Reward</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+<!--    <div><img src="assets/images/frame6.png" alt="score" class="startSideBoard"></div>-->
     <div><img src="assets/images/score.png" alt="score" class="tomatoInStart"></div>
 </section>
 
@@ -210,15 +238,18 @@
         <img src="assets/images/time.png" alt="" class="menu" id="menu1">
         <img src="assets/images/time.png" alt="" class="menu" id="menu2">
         <img src="assets/images/time.png" alt="" class="menu" id="menu3">
+        <img src="assets/images/time.png" alt="" class="menu" id="menu4">
     </div>
     <div class="menuFrame">
         <img src="assets/images/start.png" alt="" class="menu" id="star">
         <img src="assets/images/heart.png" alt="" class="menu" id="heart">
+        <img src="assets/images/reward.png" alt="" class="menu" id="reward">
         <img src="assets/images/timer.png" alt="" class="menu" id="timerIcon">
     </div>
     <div class="menuFrame">
         <h2 class="menu" id="fullScore">0</h2>
         <h2 class="menu" id="lives">+3</h2>
+        <h2 class="menu" id="rewardCountPerLevel">1</h2>
         <h2 class="menu" id="time">1.00</h2>
     </div>
     <h1 id="display_level_header">LEVEL <span id="display_level_header_count">1</span></h1>
@@ -298,7 +329,8 @@
         <h1 id="fullScorePerGameInWin">SCORE : <span class="fullScoreForFail">0</span></h1>
         <img src="assets/images/woodenField1.png" alt="" id="woodenFieldsForTime" class="woodenFields">
         <button id="btnNextLevel">NEXT LEVEL</button>
-        <h1 id="timePerGame">TIME : <!--<span id="levelforFail"></span>--></h1>
+        <h1 id="timePerGame">TIME : <span id="timePerGameforWin">2</span></h1>
+        <h1 id="rewardPerGame">REWARD : <span id="rewardPerGameForWin">1</span></h1>
     </div>
 
     <div><img src="assets/images/welcomeTomato.png" alt="score" class="tomatoInStart"></div>
@@ -370,6 +402,7 @@
 </section>
 
 <script src="assets/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="controllers/DashBoard.js"></script>
 <script src="controllers/LoginController.js"></script>
@@ -380,6 +413,7 @@
         $('#successAlertSection').delay(5000).fadeOut(500);
         $('#warningAlertSection').delay(5000).fadeOut(500);
         $('#errorAlertSection').delay(5000).fadeOut(500);
+
     });
 
     $(window).on('load',function () {

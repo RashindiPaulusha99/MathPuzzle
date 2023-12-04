@@ -1,9 +1,6 @@
 package com.uob.mathpuzzle.service.impl;
 
-import com.uob.mathpuzzle.dto.GameResDto;
-import com.uob.mathpuzzle.dto.PlayerDTO;
-import com.uob.mathpuzzle.dto.ScoreDTO;
-import com.uob.mathpuzzle.dto.ScoreLevelDTO;
+import com.uob.mathpuzzle.dto.*;
 import com.uob.mathpuzzle.entity.Player;
 import com.uob.mathpuzzle.entity.Score;
 import com.uob.mathpuzzle.repository.GameRepository;
@@ -71,10 +68,35 @@ public class GameServiceImpl implements GameService{
             ScoreLevelDTO scoreLevelDTO = new ScoreLevelDTO();
             scoreLevelDTO.setLevel(gameRepository.findByLevel(playerDTO.getId()));
             scoreLevelDTO.setScore(gameRepository.findByScores(playerDTO.getId()) == null ? 0 : gameRepository.findByScores(playerDTO.getId()));
+            scoreLevelDTO.setReward(gameRepository.findByRewards(playerDTO.getId()) == null ? 0 : gameRepository.findByRewards(playerDTO.getId()));
 
             return scoreLevelDTO;
         } catch (Exception e) {
             log.error("Error at method getScoreLevelInStart: " + e.getMessage());
+            throw e;
+        }
+    }
+
+    @Override
+    public LeaderboardDTO getLeaderboard(String token) {
+        log.info("Execute method getLeaderboard :");
+
+        try {
+
+
+
+            /*LeaderboardDTO leaderboardDTO = new LeaderboardDTO();
+            leaderboardDTO.setRank();
+            leaderboardDTO.setScore();
+            leaderboardDTO.setName();
+            leaderboardDTO.setReward();
+
+            return leaderboardDTO;*/
+
+            return null;
+
+        } catch (Exception e) {
+            log.error("Error at method getLeaderboard: " + e.getMessage());
             throw e;
         }
     }
@@ -101,6 +123,7 @@ public class GameServiceImpl implements GameService{
 
                 return modelMapper.map(gameRepository.save(score),ScoreDTO.class);
             }else {
+                System.out.println("next");
                 Optional<Score> byId = gameRepository.findById(scoreDTO.getId());
 
                 byId.get().setIs_correct(scoreDTO.getIs_correct());

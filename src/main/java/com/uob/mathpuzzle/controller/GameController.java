@@ -1,9 +1,6 @@
 package com.uob.mathpuzzle.controller;
 
-import com.uob.mathpuzzle.dto.CommonResponseDTO;
-import com.uob.mathpuzzle.dto.GameResDto;
-import com.uob.mathpuzzle.dto.ScoreDTO;
-import com.uob.mathpuzzle.dto.ScoreLevelDTO;
+import com.uob.mathpuzzle.dto.*;
 import com.uob.mathpuzzle.service.GameService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -75,4 +72,25 @@ public class GameController {
             return new CommonResponseDTO<ScoreDTO>(false, "Error: " + e.getMessage(), null);
         }
     }
+
+    // get all score , users, rewards to display in leaderboard
+    @GetMapping(path = "/get/leaderboard", produces = MediaType.APPLICATION_JSON_VALUE)
+    public CommonResponseDTO getLeaderboard(
+            @RequestHeader(value = HEADER_AUTH, required = true) String token
+    ) {
+        try {
+            log.info("REST request to get score, users, reward to display in leaderboard");
+
+            if (token == null || token.isEmpty() || !token.startsWith("Bearer ")) {
+                return new CommonResponseDTO<>(false, "Bearer token is required", null);
+            }
+
+            return new CommonResponseDTO<LeaderboardDTO>(true, "Success", gameService.getLeaderboard(token));
+        } catch (Exception e) {
+            log.error("Error getting score, users, reward: " + e.getMessage());
+            // Return an error response or handle the exception as necessary
+            return new CommonResponseDTO<LeaderboardDTO>(false, "Error: " + e.getMessage(), null);
+        }
+    }
+
 }

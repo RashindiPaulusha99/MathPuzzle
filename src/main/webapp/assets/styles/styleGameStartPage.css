@@ -186,5 +186,83 @@
     bottom: 0;
     right: 0;
     margin: auto;
+    z-index: 2;
     filter: drop-shadow(-5px 18px 13px black);
+}
+
+#tableDiv{
+    position: absolute;
+    top: 35%;
+    left: 2%;
+    max-height: 260px; /* Adjust as needed */
+    overflow-y: auto;
+    filter: drop-shadow(-5px 18px 13px black);
+    font-family: 'Rocher';
+    font-palette: 9;
+    font-size: 25px;
+}
+
+#tableDiv::-webkit-scrollbar {
+    display: none;
+}
+
+#dtDynamicVerticalScrollExample{
+    padding: 1px;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+#dtDynamicVerticalScrollExample tbody{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#dtDynamicVerticalScrollExample th {
+    padding: 8px;
+    text-align: center;
+}
+
+#dtDynamicVerticalScrollExample td {
+    padding: 8px;
+    text-align: center;
+}
+
+#dtDynamicVerticalScrollExample thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: burlywood;
+}
+
+#leaderboardText{
+    position: absolute;
+    font-size: 20px;
+    top: 24%;
+    left: 10%;
+    font-family: 'Rocher';
+    font-palette: 9;
+    z-index: 2;
+}
+
+#leaderboardImage{
+    position: absolute;
+    left: -127px;
+    width: 368px;
+    height: 182px;
+    top: -59px;
+}
+
+#leaderboardH1{
+    position: absolute;
+    top: 12px;
+    left: -31px;
+    font-size: 21px;
+}
+
+#leaderboardCoverImage{
+    position: absolute;
+    top: 7%;
+    left: -3%;
+    height: 90%;
+    width: 35%;
 }

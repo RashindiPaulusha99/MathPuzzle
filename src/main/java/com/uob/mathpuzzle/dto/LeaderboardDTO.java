@@ -7,9 +7,10 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class ScoreLevelDTO {
+public class LeaderboardDTO {
 
+    private int rank;
+    private int name;
     private int score;
-    private int level;
     private int reward;
 }

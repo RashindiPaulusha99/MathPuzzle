@@ -161,9 +161,10 @@ function getLevelAndScore() {
 
                 $("#fullScoreCount").text(response.body.score);
                 $("#fullScore").text(response.body.score);
-                $("#fullLevelCount").text(response.body.level+1);
+                $("#fullRewardCount").text(response.body.reward);
                 $(".levelCount").text(response.body.level+1);
                 $("#display_level_header_count").text(response.body.level+1);
+                $("#rewardCountPerLevel").text(response.body.level+1);
 
             }else if (response.success == false){
 
