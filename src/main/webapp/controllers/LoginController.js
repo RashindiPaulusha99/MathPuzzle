@@ -106,6 +106,8 @@ $("#btnSignIn-login").click(function () {
 
                     getLevelAndScore();
 
+                    loadLeaderboard();
+
                     $("#email-login").val('')
                     $("#password-login").val('')
 
@@ -167,6 +169,36 @@ function getLevelAndScore() {
                 $("#rewardCountPerLevel").text(response.body.level+1);
 
             }else if (response.success == false){
+
+            }
+        },
+        error: function (ob, statusText, error) {
+            console.log(ob.responseJSON.message)
+        }
+    });
+}
+
+function loadLeaderboard(){
+    $.ajax({
+        url: "http://localhost:8080/v1/game/get/leaderboard",
+        method: "GET",
+        crossDomain: true,
+        contentType: "application/json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("authToken")
+        },
+        success: function (response) {
+            if (response.success == true) {
+
+                for (var bodyKey of response.body) {
+                    let raw = `<tr><td>${bodyKey.rank}</td>
+                        <td>${bodyKey.name}</td>
+                        <td>${bodyKey.score}</td>
+                        <td>${bodyKey.reward}</td>
+                    </tr>`;
+                    $("#tbody").append(raw);
+                }
+            }else{
 
             }
         },

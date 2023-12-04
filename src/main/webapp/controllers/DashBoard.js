@@ -3,6 +3,7 @@ $("#loginSection").css('display','none');
 $("#registerSection").css('display','none');
 $("#gameStartSection").css('display','none');
 $("#playSection").css('display','none');
+$("#profileSection").css('display','none');
 $("#btnLeftBack").css('display','none');
 $("#model_container").css('display','none');
 $("#successAlertSection").css('display','none');
@@ -17,6 +18,7 @@ $("#btnLogin").click(function () {
     $("#registerSection").css('display','none');
     $("#gameStartSection").css('display','none');
     $("#playSection").css('display','none');
+    $("#profileSection").css('display','none');
     $("#welcomeSection").css('display','block');
     $("#btnLeftBack").css('display','block');
     $("#model_container").css('display','none');
@@ -31,6 +33,7 @@ $("#btnRegister").click(function () {
     $("#playSection").css('display','none');
     $("#gameStartSection").css('display','none');
     $("#welcomeSection").css('display','none');
+    $("#profileSection").css('display','none');
     $("#btnLeftBack").css('display','none');
     $("#model_container").css('display','none');
     $("#successAlertSection").css('display','none');
@@ -43,6 +46,7 @@ $(".btnLeftBack").click(function () {
     $("#registerSection").css('display','none');
     $("#playSection").css('display','none');
     $("#gameStartSection").css('display','none');
+    $("#profileSection").css('display','none');
     $("#btnLeftBack").css('display','none');
     $("#welcomeSection").css('display','block');
     $("#model_container").css('display','none');
@@ -56,6 +60,7 @@ $("#btnSignUp-login").click(function () {
     $("#registerSection").css('display','block');
     $("#playSection").css('display','none');
     $("#gameStartSection").css('display','none');
+    $("#profileSection").css('display','none');
     $("#btnLeftBack").css('display','block');
     $("#welcomeSection").css('display','none');
     $("#model_container").css('display','none');
@@ -69,6 +74,7 @@ $("#btnSignIn-register").click(function () {
     $("#registerSection").css('display','none');
     $("#playSection").css('display','none');
     $("#gameStartSection").css('display','none');
+    $("#profileSection").css('display','none');
     $("#btnLeftBack").css('display','block');
     $("#welcomeSection").css('display','none');
     $("#model_container").css('display','none');
@@ -83,6 +89,7 @@ $("#btnPlay").click(function () {
     $("#gameStartSection").css('display','none');
     $("#playSection").css('display','block');
     $("#welcomeSection").css('display','none');
+    $("#profileSection").css('display','none');
     $("#btnLeftBack").css('display','block');
     $("#winSection").css('display','none');
     $('#win_container').css('display','none');
@@ -100,6 +107,7 @@ $("#backToStart").click(function () {
     $("#gameStartSection").css('display','block');
     $("#playSection").css('display','none');
     $("#welcomeSection").css('display','none');
+    $("#profileSection").css('display','none');
     $("#btnLeftBack").css('display','block');
     $('#win_container').css('display','none');
     $("#model_container").css('display','none');
@@ -115,6 +123,7 @@ $("#backToStartFromWin").click(function () {
     $("#registerSection").css('display','none');
     $("#gameStartSection").css('display','block');
     $("#playSection").css('display','none');
+    $("#profileSection").css('display','none');
     $("#welcomeSection").css('display','none');
     $("#btnLeftBack").css('display','block');
     $('#win_container').css('display','none');

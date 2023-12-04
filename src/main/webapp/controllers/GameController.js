@@ -5,30 +5,6 @@ var score = 30;
 var chances = 3;
 var gameId = null;
 
-loadLeaderboard();
-
-function loadLeaderboard(){
-    $.ajax({
-        url: "http://localhost:8080/v1/game/get/leaderboard",
-        method: "GET",
-        crossDomain: true,
-        contentType: "application/json",
-        success: function (response) {
-            console.log(response)
-            if (response.success == true) {
-
-
-
-            }else{
-
-            }
-        },
-        error: function (ob, statusText, error) {
-            console.log(ob.responseJSON.message)
-        }
-    });
-}
-
 $("#btnPlay").on('click', function() {
 
     $.ajax({
