@@ -4,6 +4,7 @@ import com.uob.mathpuzzle.dto.*;
 import com.uob.mathpuzzle.entity.Player;
 import com.uob.mathpuzzle.entity.Score;
 import com.uob.mathpuzzle.repository.GameRepository;
+import com.uob.mathpuzzle.repository.PlayerRepository;
 import com.uob.mathpuzzle.service.GameService;
 import com.uob.mathpuzzle.util.DecodeToken;
 import com.uob.mathpuzzle.util.NowDate;
@@ -17,8 +18,14 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
+import javax.persistence.Tuple;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Log4j2
 @Service
@@ -30,16 +37,18 @@ public class GameServiceImpl implements GameService{
     private final BCryptPasswordEncoder encoder;
     private final TomatoAPI tomatoAPI;
     private final GameRepository gameRepository;
+    private final PlayerRepository playerRepository;
     private final DecodeToken decodeToken;
     private final NowDate nowDate;
 
     @Autowired
-    public GameServiceImpl(ModelMapper modelMapper, RestTemplate restTemplate, BCryptPasswordEncoder encoder, TomatoAPI tomatoAPI, GameRepository gameRepository, DecodeToken decodeToken, NowDate nowDate) {
+    public GameServiceImpl(ModelMapper modelMapper, RestTemplate restTemplate, BCryptPasswordEncoder encoder, TomatoAPI tomatoAPI, GameRepository gameRepository, PlayerRepository playerRepository, DecodeToken decodeToken, NowDate nowDate) {
         this.modelMapper = modelMapper;
         this.restTemplate = restTemplate;
         this.encoder = encoder;
         this.tomatoAPI = tomatoAPI;
         this.gameRepository = gameRepository;
+        this.playerRepository = playerRepository;
         this.decodeToken = decodeToken;
         this.nowDate = nowDate;
     }
@@ -78,22 +87,25 @@ public class GameServiceImpl implements GameService{
     }
 
     @Override
-    public LeaderboardDTO getLeaderboard(String token) {
+    public List<LeaderboardDTO> getLeaderboard(String token) {
         log.info("Execute method getLeaderboard :");
 
         try {
 
+            List<LeaderboardDTO> leaderboardDTOS = new ArrayList<>();
 
+            for (RankDTO rankDTO : gameRepository.findAllScoreAndRewardPerPlayer()) {
 
-            /*LeaderboardDTO leaderboardDTO = new LeaderboardDTO();
-            leaderboardDTO.setRank();
-            leaderboardDTO.setScore();
-            leaderboardDTO.setName();
-            leaderboardDTO.setReward();
+                LeaderboardDTO leaderboardDTO = new LeaderboardDTO();
+                leaderboardDTO.setRank(rankDTO.getRanks());
+                leaderboardDTO.setName(playerRepository.findById(rankDTO.getPlayer_id()).get().getUsername());
+                leaderboardDTO.setScore(rankDTO.getScore());
+                leaderboardDTO.setReward(rankDTO.getReward());
 
-            return leaderboardDTO;*/
+                leaderboardDTOS.add(leaderboardDTO);
+            }
 
-            return null;
+            return leaderboardDTOS;
 
         } catch (Exception e) {
             log.error("Error at method getLeaderboard: " + e.getMessage());
@@ -117,7 +129,6 @@ public class GameServiceImpl implements GameService{
                 score.setIs_correct(scoreDTO.getIs_correct());
                 score.setLevel(scoreDTO.getLevel());
                 score.setScore(scoreDTO.getScore());
-                score.setTimer(scoreDTO.getTimer());
                 score.setReward(scoreDTO.getReward());
                 score.setUpdatedTimestamp(new Date());
 
@@ -128,7 +139,6 @@ public class GameServiceImpl implements GameService{
 
                 byId.get().setIs_correct(scoreDTO.getIs_correct());
                 byId.get().setScore(scoreDTO.getScore());
-                byId.get().setTimer(scoreDTO.getTimer());
                 byId.get().setReward(scoreDTO.getReward());
                 byId.get().setUpdatedTimestamp(new Date());
 

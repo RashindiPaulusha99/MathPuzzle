@@ -10,7 +10,8 @@ import lombok.*;
 public class LeaderboardDTO {
 
     private int rank;
-    private int name;
+    private String name;
     private int score;
     private int reward;
+
 }

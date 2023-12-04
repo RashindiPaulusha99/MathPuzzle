@@ -28,7 +28,6 @@ public class Score {
     private int level;
     private Boolean is_correct;
     private int score;
-    private double timer;
     private int reward;
     @JsonFormat(pattern = "dd-MM-yyyy HH:MM:ss")
     @Temporal(TemporalType.TIMESTAMP)

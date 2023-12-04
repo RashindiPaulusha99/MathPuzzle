@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import static com.uob.mathpuzzle.constant.OAuth2Constant.HEADER_AUTH;
 
 @RestController
@@ -85,7 +87,7 @@ public class GameController {
                 return new CommonResponseDTO<>(false, "Bearer token is required", null);
             }
 
-            return new CommonResponseDTO<LeaderboardDTO>(true, "Success", gameService.getLeaderboard(token));
+            return new CommonResponseDTO<List<LeaderboardDTO>>(true, "Success", gameService.getLeaderboard(token));
         } catch (Exception e) {
             log.error("Error getting score, users, reward: " + e.getMessage());
             // Return an error response or handle the exception as necessary
