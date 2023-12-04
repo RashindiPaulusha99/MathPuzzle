@@ -1,0 +1,82 @@
+.profileForm{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 60%;
+    height: 78%;
+}
+
+#profileFrame{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 110%;
+    height: 110%;
+    filter: drop-shadow(-1px 18px 13px black);
+}
+
+#profileLogo{
+    position: absolute;
+    top: 0;
+    left: 90px;
+    right: 0;
+    margin: auto;
+    width: 109px;
+    filter: drop-shadow(-1px 18px 13px black);
+}
+
+#profileTitle{
+    position: absolute;
+    top: 20%;
+    left: 42%;
+    right: 0;
+    margin: auto;
+    font-family: 'Rocher';
+    font-palette: 9;
+}
+
+#profileNameTitle{
+    position: absolute;
+    top: 41%;
+    left: 49%;
+    right: 0;
+    margin: auto;
+    font-family: 'Rocher';
+    font-palette: 9;
+}
+
+#profileName{
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    right: 0;
+    margin: auto;
+    font-family: 'Rocher';
+    font-palette: 9;
+}
+
+#profileEmailTitle{
+    position: absolute;
+    top: 71%;
+    left: 49%;
+    right: 0;
+    margin: auto;
+    font-family: 'Rocher';
+    font-palette: 9;
+}
+
+#profileEmail{
+    position: absolute;
+    top: 86%;
+    left: 42%;
+    right: 0;
+    margin: auto;
+    font-family: 'Rocher';
+    font-palette: 9;
+}

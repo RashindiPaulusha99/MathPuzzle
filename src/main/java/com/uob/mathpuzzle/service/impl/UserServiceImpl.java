@@ -5,6 +5,7 @@ import com.uob.mathpuzzle.entity.Player;
 import com.uob.mathpuzzle.exception.GameException;
 import com.uob.mathpuzzle.repository.PlayerRepository;
 import com.uob.mathpuzzle.service.UserService;
+import com.uob.mathpuzzle.util.DecodeToken;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,14 @@ public class UserServiceImpl implements UserService {
     private final PlayerRepository playerRepository;
     private final ModelMapper modelMapper;
     private final BCryptPasswordEncoder passwordEncoder;
+    private final DecodeToken decodeToken;
 
     @Autowired
-    public UserServiceImpl(PlayerRepository playerRepository, ModelMapper modelMapper, BCryptPasswordEncoder passwordEncoder) {
+    public UserServiceImpl(PlayerRepository playerRepository, ModelMapper modelMapper, BCryptPasswordEncoder passwordEncoder, DecodeToken decodeToken) {
         this.playerRepository = playerRepository;
         this.modelMapper = modelMapper;
         this.passwordEncoder = passwordEncoder;
+        this.decodeToken = decodeToken;
     }
 
     @Override
@@ -54,10 +57,34 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public PlayerDTO savePlayer(PlayerDTO playerDTO) {
-        Player player = new Player();
-        player.setEmail(playerDTO.getEmail());
-        player.setUsername(playerDTO.getUsername());
-        player.setPassword(passwordEncoder.encode(playerDTO.getPassword()));
-        return modelMapper.map(playerRepository.save(player), PlayerDTO.class);
+        log.info("Execute method savePlayer :"+playerDTO);
+
+        try {
+
+            Player player = new Player();
+            player.setEmail(playerDTO.getEmail());
+            player.setUsername(playerDTO.getUsername());
+            player.setPassword(passwordEncoder.encode(playerDTO.getPassword()));
+            return modelMapper.map(playerRepository.save(player), PlayerDTO.class);
+
+        } catch (Exception e) {
+            log.error("Error at method savePlayer: " + e.getMessage());
+            throw e;
+        }
+    }
+
+    @Override
+    public PlayerDTO getPlayer(String token) {
+        log.info("Execute method getPlayer :");
+
+        try {
+
+            // get player from token
+            return decodeToken.checkAccessTokenAndGetPlayer(token);
+
+        } catch (Exception e) {
+            log.error("Error at method getPlayer: " + e.getMessage());
+            throw e;
+        }
     }
 }

@@ -108,6 +108,8 @@ $("#btnSignIn-login").click(function () {
 
                     loadLeaderboard();
 
+                    getUserDetails();
+
                     $("#email-login").val('')
                     $("#password-login").val('')
 
@@ -179,6 +181,7 @@ function getLevelAndScore() {
 }
 
 function loadLeaderboard(){
+    $("#tbody").empty();
     $.ajax({
         url: "http://localhost:8080/v1/game/get/leaderboard",
         method: "GET",
@@ -199,6 +202,31 @@ function loadLeaderboard(){
                     $("#tbody").append(raw);
                 }
             }else{
+
+            }
+        },
+        error: function (ob, statusText, error) {
+            console.log(ob.responseJSON.message)
+        }
+    });
+}
+
+function getUserDetails() {
+    $.ajax({
+        url: "http://localhost:8080/v1/player/get/data",
+        method: "GET",
+        crossDomain: true,
+        contentType: "application/json",
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("authToken")
+        },
+        success: function (response) {
+            if (response.success == true) {
+
+                $("#profileName").text(response.body.username);
+                $("#profileEmail").text(response.body.email);
+
+            }else if (response.success == false){
 
             }
         },

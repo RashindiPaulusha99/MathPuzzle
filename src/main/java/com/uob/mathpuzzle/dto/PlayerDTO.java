@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,6 +17,5 @@ public class PlayerDTO {
     private String username;
     private String email;
     private String password;
-    //private List<Score> scores = new ArrayList<>();
 
 }

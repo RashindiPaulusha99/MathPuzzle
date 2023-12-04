@@ -101,7 +101,7 @@ $("#btnPlay").click(function () {
     $("#errorAlertSection").css('display','none');
 });
 
-$("#backToStart").click(function () {
+$("#backToStart,#btnStartBack").click(function () {
     $("#loginSection").css('display','none');
     $("#registerSection").css('display','none');
     $("#gameStartSection").css('display','block');
@@ -126,6 +126,24 @@ $("#backToStartFromWin").click(function () {
     $("#profileSection").css('display','none');
     $("#welcomeSection").css('display','none');
     $("#btnLeftBack").css('display','block');
+    $('#win_container').css('display','none');
+    $("#model_container").css('display','none');
+    $('.try_again_container').css('transform', 'scale(0)');
+    $('.try_again_container').css('display','none');
+    $("#successAlertSection").css('display','none');
+    $("#warningAlertSection").css('display','none');
+    $("#errorAlertSection").css('display','none');
+});
+
+$("#btnOpenProfile").click(function () {
+    $("#loginSection").css('display','none');
+    $("#registerSection").css('display','none');
+    $("#gameStartSection").css('display','none');
+    $("#playSection").css('display','none');
+    $("#welcomeSection").css('display','none');
+    $("#profileSection").css('display','block');
+    $("#btnLeftBack").css('display','block');
+    $("#winSection").css('display','none');
     $('#win_container').css('display','none');
     $("#model_container").css('display','none');
     $('.try_again_container').css('transform', 'scale(0)');

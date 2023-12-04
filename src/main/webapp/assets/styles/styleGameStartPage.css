@@ -266,3 +266,36 @@
     height: 90%;
     width: 35%;
 }
+
+#btnStartBack{
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 100px;
+    cursor: pointer;
+    z-index: 2;
+    filter: drop-shadow(-1px 18px 13px black);
+    transition-property: width,height;
+    transition-duration: 1s;
+}
+
+#btnStartBack:hover{
+    width:80px ;
+
+}
+
+
+#btnOpenProfile{
+    position: absolute;
+    top: 15px;
+    right: 0;
+    width: 100px;
+    cursor: pointer;
+    filter: drop-shadow(-1px 18px 13px black);
+    transition-property: width,height;
+    transition-duration: 1s;
+}
+
+#btnOpenProfile:hover{
+    width:80px ;
+}
