@@ -55,6 +55,7 @@ public class GameServiceImpl implements GameService{
         log.info("Execute method getNewQuestion :");
 
         try {
+            // get new question
             return tomatoAPI.getNewQuestion();
         } catch (Exception e) {
             log.error("Error at method getNewQuestion: " + e.getMessage());
@@ -71,6 +72,7 @@ public class GameServiceImpl implements GameService{
             // get player from token
             PlayerDTO playerDTO = decodeToken.checkAccessTokenAndGetPlayer(token);
 
+            // return score , level details
             ScoreLevelDTO scoreLevelDTO = new ScoreLevelDTO();
             scoreLevelDTO.setLevel(gameRepository.findByLevel(playerDTO.getId()));
             scoreLevelDTO.setScore(gameRepository.findByScores(playerDTO.getId()) == null ? 0 : gameRepository.findByScores(playerDTO.getId()));
@@ -91,6 +93,7 @@ public class GameServiceImpl implements GameService{
 
             List<LeaderboardDTO> leaderboardDTOS = new ArrayList<>();
 
+            // get all playerwise score, rewards and rank to display leader board
             for (RankDTO rankDTO : gameRepository.findAllScoreAndRewardPerPlayer()) {
 
                 LeaderboardDTO leaderboardDTO = new LeaderboardDTO();
@@ -118,6 +121,7 @@ public class GameServiceImpl implements GameService{
             // get player from token
             PlayerDTO playerDTO = decodeToken.checkAccessTokenAndGetPlayer(token);
 
+            // save score if first time
             if (scoreDTO.getId() == null){
                 Score score = new Score();
                 score.setPlayer(modelMapper.map(playerDTO, Player.class));
@@ -131,7 +135,7 @@ public class GameServiceImpl implements GameService{
 
                 return modelMapper.map(gameRepository.save(score),ScoreDTO.class);
             }else {
-                System.out.println("next");
+                // update score
                 Optional<Score> byId = gameRepository.findById(scoreDTO.getId());
 
                 byId.get().setIs_correct(scoreDTO.getIs_correct());

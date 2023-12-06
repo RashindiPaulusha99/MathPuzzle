@@ -65,6 +65,7 @@ public class UserServiceImpl implements UserService {
 
         try {
 
+            // save player when register
             Player player = new Player();
             player.setEmail(playerDTO.getEmail());
             player.setUsername(playerDTO.getUsername());
@@ -103,7 +104,6 @@ public class UserServiceImpl implements UserService {
             String filePath = null;
             // save image to htdocs and get its path url
             filePath = fileWriter.saveMultipartFile(image, "image");
-
             playerDTO.setImage(filePath);
 
             return modelMapper.map(playerRepository.save(modelMapper.map(playerDTO, Player.class)),PlayerDTO.class);
