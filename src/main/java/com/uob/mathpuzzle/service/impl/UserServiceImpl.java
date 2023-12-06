@@ -6,6 +6,7 @@ import com.uob.mathpuzzle.exception.GameException;
 import com.uob.mathpuzzle.repository.PlayerRepository;
 import com.uob.mathpuzzle.service.UserService;
 import com.uob.mathpuzzle.util.DecodeToken;
+import com.uob.mathpuzzle.util.FileWriter;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
 
@@ -27,13 +29,15 @@ public class UserServiceImpl implements UserService {
     private final ModelMapper modelMapper;
     private final BCryptPasswordEncoder passwordEncoder;
     private final DecodeToken decodeToken;
+    private final FileWriter fileWriter;
 
     @Autowired
-    public UserServiceImpl(PlayerRepository playerRepository, ModelMapper modelMapper, BCryptPasswordEncoder passwordEncoder, DecodeToken decodeToken) {
+    public UserServiceImpl(PlayerRepository playerRepository, ModelMapper modelMapper, BCryptPasswordEncoder passwordEncoder, DecodeToken decodeToken, FileWriter fileWriter) {
         this.playerRepository = playerRepository;
         this.modelMapper = modelMapper;
         this.passwordEncoder = passwordEncoder;
         this.decodeToken = decodeToken;
+        this.fileWriter = fileWriter;
     }
 
     @Override
@@ -84,6 +88,28 @@ public class UserServiceImpl implements UserService {
 
         } catch (Exception e) {
             log.error("Error at method getPlayer: " + e.getMessage());
+            throw e;
+        }
+    }
+
+    @Override
+    public PlayerDTO saveProfileImage(String token, MultipartFile image) {
+        log.info("Execute method saveProfileImage :"+"image : "+image);
+
+        try {
+
+            PlayerDTO playerDTO = decodeToken.checkAccessTokenAndGetPlayer(token);
+
+            String filePath = null;
+            // save image to htdocs and get its path url
+            filePath = fileWriter.saveMultipartFile(image, "image");
+
+            playerDTO.setImage(filePath);
+
+            return modelMapper.map(playerRepository.save(modelMapper.map(playerDTO, Player.class)),PlayerDTO.class);
+
+        } catch (Exception e) {
+            log.error("Error at method saveProfileImage: " + e.getMessage());
             throw e;
         }
     }

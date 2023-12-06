@@ -1,4 +1,4 @@
-package com.uob.mathpuzzle.dto;
+package com.uob.mathpuzzle.dto.projection;
 
 public interface RankDTO {
 

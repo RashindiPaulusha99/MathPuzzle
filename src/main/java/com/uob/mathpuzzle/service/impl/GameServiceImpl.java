@@ -1,6 +1,7 @@
 package com.uob.mathpuzzle.service.impl;
 
 import com.uob.mathpuzzle.dto.*;
+import com.uob.mathpuzzle.dto.projection.RankDTO;
 import com.uob.mathpuzzle.entity.Player;
 import com.uob.mathpuzzle.entity.Score;
 import com.uob.mathpuzzle.repository.GameRepository;
@@ -18,14 +19,10 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
-import javax.persistence.Tuple;
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Log4j2
 @Service

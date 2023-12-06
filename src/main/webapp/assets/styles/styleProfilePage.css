@@ -23,12 +23,14 @@
 
 #profileLogo{
     position: absolute;
-    top: 0;
+    top: -18px;
     left: 90px;
     right: 0;
     margin: auto;
-    width: 109px;
+    width: 140px;
+    height: 140px;
     filter: drop-shadow(-1px 18px 13px black);
+    border-radius: 100%;
 }
 
 #profileTitle{
@@ -79,4 +81,22 @@
     margin: auto;
     font-family: 'Rocher';
     font-palette: 9;
+}
+
+.image-upload {
+    overflow-y: hidden;
+}
+
+.image-upload > input {
+    display: none;
+}
+
+.image-upload img {
+    width: 47px;
+    cursor: pointer;
+    position: absolute;
+    top: 64px;
+    left: 57%;
+    color: var(--white);
+    filter: drop-shadow(-1px 18px 13px black);
 }

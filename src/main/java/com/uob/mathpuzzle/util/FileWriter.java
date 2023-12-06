@@ -29,20 +29,6 @@ import static com.uob.mathpuzzle.constant.S3BucketFolderConstant.FOLDER_PATH_IMA
 @Log4j2
 public class FileWriter{
 
-    private AmazonS3 s3client;
-
-    @Value("${accessKey}")
-    private String accessKey;
-
-    @Value("${secretKey}")
-    private String secretKey;
-
-    @Value("${endpointUrl}")
-    private String endpointUrl;
-
-    @Value("${bucketName}")
-    private String bucketName;
-
     @Value("${outgoingURL}")
     private String outgoingURL;
 
@@ -50,26 +36,16 @@ public class FileWriter{
     private OutputStream outputStream;
     private BufferedOutputStream bufferedOutputStream;
 
-    public static final String TEMP_FILE_PATH = "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.5\\webapps\\resources\\math";
-    //public static final String TEMP_FILE_PATH = "/resource/temp";
+    public static final String TEMP_FILE_PATH = "C:\\xampp\\htdocs\\game\\image";
 
     public static final int MULTIPART_FILE_SAVE_ERROR = 300;
-
-    @PostConstruct
-    private void initializeAmazon() {
-        log.debug("Start...");
-        log.debug("accessKey : " + accessKey);
-        log.debug("secretKey : " + secretKey);
-        AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
-        this.s3client = new AmazonS3Client(credentials);
-    }
 
     @Autowired
     public FileWriter(Environment environment) {
         this.environment = environment;
     }
 
-    // save multipart file to s3 bucket
+    // save multipart file to htdocs
     public String saveMultipartFile(MultipartFile file, String type) {
 
         log.info("Start Function saveMultipartFile " + type);
@@ -82,10 +58,6 @@ public class FileWriter{
             String name = UUID.randomUUID().toString();
 
             switch (type) {
-                case "file":
-                    fileDownloadDir = outgoingURL + FOLDER_PATH_CSV;
-                    fileUploadDir = FOLDER_PATH_CSV.substring(1);
-                    break;
                 case "image":
                     fileDownloadDir = outgoingURL + FOLDER_PATH_IMAGE;
                     fileUploadDir = FOLDER_PATH_IMAGE.substring(1);
@@ -97,12 +69,9 @@ public class FileWriter{
                 extension = split[(split.length - 1)];
             }
 
-
             String fileName = name + FilenameUtils.EXTENSION_SEPARATOR_STR + extension;
 
             serverFile = convertMultiPartToFile(file, fileName);
-
-            uploadFileTos3bucket(fileUploadDir + fileName, serverFile);
 
             fileUrl = fileDownloadDir + fileName;
 
@@ -128,13 +97,6 @@ public class FileWriter{
 
     }
 
-    //    upload files in s3 bucket
-    private void uploadFileTos3bucket(String fileName, File file) {
-        log.info("Start function uploadFileTos3bucket : " + fileName);
-        s3client.putObject(new PutObjectRequest(bucketName, fileName, file)
-                .withCannedAcl(CannedAccessControlList.Private));
-    }
-
     // Convert any multipart file to file
     private File convertMultiPartToFile(MultipartFile file, String fileName) throws IOException {
         log.info("Start function convertMultiPartToFile @ param fileName : " + fileName);
@@ -154,18 +116,5 @@ public class FileWriter{
             if (fos != null) fos.close();
         }
 
-    }
-
-    // get file from s3 bucket
-    public void getFileFromS3bucket(String downloadDirectory, String fileName) {
-        try {
-            log.debug("file location : " + downloadDirectory);
-            log.debug("file name : " + fileName);
-            InputStream inputStream = s3client.getObject(bucketName, downloadDirectory + fileName).getObjectContent();
-            FileUtils.copyInputStreamToFile(inputStream, new File(TEMP_FILE_PATH + fileName));
-        } catch (Exception e) {
-        	e.printStackTrace();
-            log.error("getFileFroms3bucket : " + e.getMessage(), e);
-        }
     }
 }

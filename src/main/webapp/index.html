@@ -290,6 +290,12 @@
     <div class="profileForm">
         <img src="assets/images/frame11.png" alt="profile" id="profileFrame">
         <img src="assets/images/follow-5084833-4263863.webp" alt="profile" id="profileLogo">
+        <div class="image-upload">
+            <label for="file-input">
+                <img src="assets/images/camera-icon-pink-3d-render-png.webp"/>
+            </label>
+            <input id="file-input" type="file"/>
+        </div>
         <h1 id="profileTitle">MY PROFILE</h1>
         <h2 id="profileNameTitle">NAME :</h2>
         <h3 id="profileName">user</h3>
@@ -424,6 +430,7 @@
 <script src="controllers/DashBoard.js"></script>
 <script src="controllers/LoginController.js"></script>
 <script src="controllers/GameController.js"></script>
+<script src="controllers/ProfileController.js"></script>
 <script>
     $(document).ready(function() {
         // Delay for 5 seconds and then fade out in 0.5 seconds

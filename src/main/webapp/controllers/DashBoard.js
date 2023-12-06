@@ -10,6 +10,11 @@ $("#successAlertSection").css('display','none');
 $("#warningAlertSection").css('display','none');
 $("#errorAlertSection").css('display','none');
 
+var defaultImagePath = "assets/images/follow-5084833-4263863.webp";
+
+// Set the initial source of #profileLogo to the default image
+$('#profileLogo').attr('src', defaultImagePath);
+
 $(".try_again_container").css('display', 'none');
 $("#win_container").css('display', 'none');
 

@@ -7,8 +7,11 @@ import com.uob.mathpuzzle.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import static com.uob.mathpuzzle.constant.OAuth2Constant.HEADER_AUTH;
 
@@ -50,6 +53,31 @@ public class PlayerController {
             return new CommonResponseDTO<PlayerDTO>(true, "Success", playerService.getPlayer(token));
         } catch (Exception e) {
             log.error("Error getting player details: " + e.getMessage());
+            // Return an error response or handle the exception as necessary
+            return new CommonResponseDTO<PlayerDTO>(false, "Error: " + e.getMessage(), null);
+        }
+    }
+
+    // update user profile image
+    @PostMapping(path = "/update/image", consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public CommonResponseDTO updateProfileImage(
+            @RequestHeader(value = HEADER_AUTH, required = true) String token,
+            @RequestPart("image") MultipartFile image
+    ) {
+        try {
+            log.info("REST request to update profile image ");
+
+            if (token == null || token.isEmpty() || !token.startsWith("Bearer ")) {
+                return new CommonResponseDTO<>(false, "Bearer token is required", null);
+            }
+
+            if (image.isEmpty()) {
+                return new CommonResponseDTO<>(false, "The image is empty", null);
+            }else {
+                return new CommonResponseDTO<PlayerDTO>(true, "Success", playerService.saveProfileImage(token,image));
+            }
+        } catch (Exception e) {
+            log.error("Error updating profile image: " + e.getMessage());
             // Return an error response or handle the exception as necessary
             return new CommonResponseDTO<PlayerDTO>(false, "Error: " + e.getMessage(), null);
         }

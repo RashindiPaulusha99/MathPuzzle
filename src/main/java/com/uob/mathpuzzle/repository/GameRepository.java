@@ -1,7 +1,7 @@
 package com.uob.mathpuzzle.repository;
 
 
-import com.uob.mathpuzzle.dto.RankDTO;
+import com.uob.mathpuzzle.dto.projection.RankDTO;
 import com.uob.mathpuzzle.entity.Score;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

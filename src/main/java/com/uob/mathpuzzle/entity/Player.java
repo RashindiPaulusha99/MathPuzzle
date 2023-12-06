@@ -22,6 +22,7 @@ public class Player {
     private String username;
     private String email;
     private String password;
+    private String image;
 
     @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Score> scores = new ArrayList<>();

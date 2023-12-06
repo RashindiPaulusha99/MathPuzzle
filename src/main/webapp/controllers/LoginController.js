@@ -226,6 +226,12 @@ function getUserDetails() {
                 $("#profileName").text(response.body.username);
                 $("#profileEmail").text(response.body.email);
 
+                if (response.body.image != null){
+                    $("#profileLogo").attr('src', response.body.image);
+                }else {
+                    $("#profileLogo").attr('src', "assets/images/follow-5084833-4263863.webp");
+                }
+
             }else if (response.success == false){
 
             }
