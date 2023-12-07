@@ -221,15 +221,18 @@ function getUserDetails() {
             "Authorization": "Bearer " + localStorage.getItem("authToken")
         },
         success: function (response) {
+            console.log(response.body)
             if (response.success == true) {
 
                 $("#profileName").text(response.body.username);
                 $("#profileEmail").text(response.body.email);
 
+                console.log(response.body.image)
                 if (response.body.image != null){
                     $("#profileLogo").attr('src', response.body.image);
                 }else {
-                    $("#profileLogo").attr('src', "assets/images/follow-5084833-4263863.webp");
+                    console.log("null")
+                    $("#profileLogo").attr('src',"../assets/images/follow-5084833-4263863.webp");
                 }
 
             }else if (response.success == false){

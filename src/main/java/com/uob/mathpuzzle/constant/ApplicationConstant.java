@@ -14,6 +14,7 @@ public class ApplicationConstant {
     public static final int OPERATION_SUCCESS = 0;
     public static final int OPERATION_FAILED = 1;
     public static final int BAD_REQUEST = 400;
+    public static final int MULTIPART_FILE_SAVE_ERROR = 300;
 
     public static final String APPLICATION_ERROR_OCCURRED_MESSAGE = "Unexpected Error Occurred";
     public static final String SERVICE_ERROR = "Service Error, please contact support!";

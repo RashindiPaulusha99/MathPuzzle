@@ -1,14 +1,7 @@
 package com.uob.mathpuzzle.util;
 
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
-import com.amazonaws.services.s3.model.CannedAccessControlList;
-import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.uob.mathpuzzle.exception.GameException;
 import lombok.extern.log4j.Log4j2;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,14 +9,14 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.PostConstruct;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.UUID;
 
-import static com.uob.mathpuzzle.constant.S3BucketFolderConstant.FOLDER_PATH_CSV;
-import static com.uob.mathpuzzle.constant.S3BucketFolderConstant.FOLDER_PATH_IMAGE;
+import static com.uob.mathpuzzle.constant.ApplicationConstant.MULTIPART_FILE_SAVE_ERROR;
+import static com.uob.mathpuzzle.constant.HtdocsFolderConstant.FOLDER_PATH_IMAGE;
+import static com.uob.mathpuzzle.constant.HtdocsFolderConstant.TEMP_FILE_PATH;
 
 @Component
 @Log4j2
@@ -35,10 +28,6 @@ public class FileWriter{
     private final Environment environment;
     private OutputStream outputStream;
     private BufferedOutputStream bufferedOutputStream;
-
-    public static final String TEMP_FILE_PATH = "C:\\xampp\\htdocs\\game\\image";
-
-    public static final int MULTIPART_FILE_SAVE_ERROR = 300;
 
     @Autowired
     public FileWriter(Environment environment) {
